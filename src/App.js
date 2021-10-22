@@ -4,9 +4,8 @@ import Adapter from './Adapter';
 import { load } from 'js-yaml';
 import AdapterList from './AdapterList';
 
-function App() {
+const App = () => {
   const [adapterArray, setAdapterArray] = useState([]);
-  // const [output, setOutput] = useState('');
 
   useEffect(() => {
     fetch('./data/config/evaluateConditions.yml')
@@ -26,6 +25,6 @@ function App() {
       <AdapterList />
     </div>
   );
-}
+};
 
 export default App;

@@ -10,6 +10,6 @@ const AdapterConfig = ({adapterArray}) => {
     <Fragment>
     </Fragment>
   )
-}
+};
 
 export default AdapterConfig;
