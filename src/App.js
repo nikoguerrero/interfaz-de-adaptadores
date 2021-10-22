@@ -1,29 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
-// const yaml = require('js-yaml');
-// const fs   = require('fs');
-
-import { load } from 'js-yaml'
-import { fs } from 'fs';
 import React, { useState, useEffect } from 'react';
+import Adapter from './Adapter';
+import { load } from 'js-yaml';
 
 function App() {
-  const [text, setText] = useState('');
+  const [adapterArray, setAdapterArray] = useState([]);
   // const [output, setOutput] = useState('');
 
   useEffect(() => {
-    fetch('./data/config/keyFinder.yml')
+    fetch('./data/config/evaluateConditions.yml')
       .then((response) => response.text())
       .then((yamlText) => {
         const yamlObject = load(yamlText);
-        console.log(yamlObject);
-        setText(JSON.stringify(yamlObject));
+        // console.log(yamlObject);
+        setAdapterArray(yamlObject);
       }).catch((err) => console.log('failed to load yaml file', err)); 
   }, []);
 
   return (
-    <div style={{width: '100%'}}>
-      {text}
+    <div>
+      <Adapter 
+        adapterArray={adapterArray}
+      />
     </div>
   );
 }
