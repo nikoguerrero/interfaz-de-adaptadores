@@ -93,6 +93,12 @@ const Form = () => {
             </div>
           </div>
         </div>
+        <div className="row">
+          <div className="float-end">
+            <button type="button" className="btn btn-primary float-end">Cancel </button>
+            <button type="button" className="btn btn-outline-primary float-end me-3" >Save </button>
+          </div>
+        </div>
     </div>
   );
 };
