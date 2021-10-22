@@ -1,11 +1,11 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import Adapter from './Adapter';
+import Adapter from './components/Adapter';
 import { load } from 'js-yaml';
 import AdapterList from './AdapterList';
-import Main from './components/Main'
+import Main from './components/Main';
+
 const App = () => {
-  
   const [adapterArray, setAdapterArray] = useState([]);
 
   useEffect(() => {
@@ -20,9 +20,7 @@ const App = () => {
 
   return (
     <div>
-      <Adapter 
-        adapterArray={adapterArray}
-      />
+      <Adapter adapterArray={adapterArray}/>
       <AdapterList />
       <Main/>
     </div>

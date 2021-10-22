@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import AdapterConfig from './AdapterConfig';
 
 const Adapter = (props) => {
-  const { adapterArray } = props; 
+  const { adapterArray } = props;
 
   console.log(adapterArray);
   return (
@@ -18,11 +18,12 @@ const Adapter = (props) => {
             <input type="text" defaultValue={item.stepName} />
             <label>mainClass:</label>
             <input type="text" readOnly value={item.mainClass} />
+            <AdapterConfig
+              key={item.id}
+              config={item.config}
+            />
           </div>
         ))}
-        <AdapterConfig 
-        objAdapter={adapterArray.config}
-      />
       </div>
     </Fragment>
   )
