@@ -14,13 +14,13 @@ const App = () => {
         const yamlObject = load(yamlText);
         // console.log(yamlObject);
         setAdapterArray(yamlObject);
-      }).catch((err) => console.log('failed to load yaml file', err)); 
+      }).catch((err) => console.log('failed to load yaml file', err));
   }, []);
 
   return (
     <div>
-      <Adapter adapterArray={adapterArray}/>
-      <Main/>
+      <Adapter adapterArray={adapterArray} />
+      <Main />
     </div>
   );
 };
