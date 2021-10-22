@@ -4,7 +4,6 @@ import './App.css';
 // const fs   = require('fs');
 
 import { load } from 'js-yaml'
-import { fs } from 'fs';
 import React, { useState, useEffect } from 'react';
 
 function App() {
