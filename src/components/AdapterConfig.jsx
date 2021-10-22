@@ -29,6 +29,7 @@ const AdapterProperty = (props) => {
 
 const AdapterConfig = ({ config }) => {
   const configArray = Object.keys(config);
+
   return (
     <div>
       {configArray.map((element) =>

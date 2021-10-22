@@ -1,8 +1,25 @@
 import React, { Fragment } from 'react';
 import AdapterConfig from './AdapterConfig';
+import { dump } from 'js-yaml';
 
 const Adapter = (props) => {
   const { adapterArray } = props;
+
+  const downloadToFile = (data, filename, contentType) => {
+    const a = document.createElement('a');
+    const file = new Blob([data], {type: contentType});
+  
+    a.href = URL.createObjectURL(file);
+    a.download = filename;
+    a.click();
+    URL.revokeObjectURL(a.href);
+  };
+
+  const saveAdapter = (e) => {
+    const yamlData = dump(adapterArray);
+    console.log(yamlData);
+    downloadToFile(yamlData, 'myAdapter.yml', 'text/plain');
+  };
 
   return (
     <Fragment>
@@ -22,6 +39,12 @@ const Adapter = (props) => {
           />
         </div>
       ))}
+            <Fragment>
+    <button
+    onClick={saveAdapter}>
+    SAVE
+  </button>
+  </Fragment>
     </Fragment>
   )
 };
