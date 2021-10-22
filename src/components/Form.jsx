@@ -3,47 +3,43 @@ import React from 'react'
 const Form = () => {
   return (
     <div>
-      <h2 className="h1 text-center">Form</h2>
+      <h2 className="h1 text-center">Output Handlergit</h2>
       <h5 className="text-primary">Plugin Configuration</h5>
       <div className="row g-2">
         <div className="col-sm-5">
           <div className="form-floating mb-3 ">
             <input
-              type="email"
+              type="text"
               className="form-control"
-              placeholder="name@example.com"
             />
-            <label>Email address</label>
+            <label>ID</label>
           </div>
         </div>
         <div className="col-sm-5">
           <div className="form-floating mb-3">
             <input
-              type="email"
+              type="text"
               className="form-control"
-              placeholder="name@example.com"
             />
-            <label>Email address</label>
+            <label>Dependencies</label>
           </div>
         </div>
         <div className="col-sm-6">
           <div className="form-floating mb-3">
             <input
-              type="email"
+              type="text"
               className="form-control"
-              placeholder="name@example.com"
             />
-            <label>Email address</label>
+            <label>StepName</label>
           </div>
         </div>
         <div className="col-sm-6">
           <div className="form-floating mb-3">
             <input
-              type="email"
+              type="text"
               className="form-control"
-              placeholder="name@example.com"
             />
-            <label>Email address</label>
+            <label>MainClass</label>
           </div>
         </div>
       </div>
@@ -52,21 +48,10 @@ const Form = () => {
           <div className="col-sm-6">
             <div className="form-floating mb-3">
               <input
-                type="email"
+                type="text"
                 className="form-control"
-                placeholder="name@example.com"
               />
-              <label>Email address</label>
-            </div>
-          </div>
-          <div className="col-sm-6">
-            <div className="form-floating mb-3">
-              <input
-                type="email"
-                className="form-control"
-                placeholder="name@example.com"
-              />
-              <label>Email address</label>
+              <label>RecordClass</label>
             </div>
           </div>
         </div>
@@ -75,28 +60,27 @@ const Form = () => {
           <div className="col-sm-6">
             <div className="form-floating mb-3">
               <input
-                type="email"
+                type="text"
                 className="form-control"
-                placeholder="name@example.com"
               />
-              <label>Email address</label>
+              <label>Map</label>
             </div>
           </div>
           <div className="col-sm-6">
             <div className="form-floating mb-3">
               <input
-                type="email"
+                type="text"
                 className="form-control"
                 placeholder="name@example.com"
               />
-              <label>Email address</label>
+              <label>Lenght</label>
             </div>
           </div>
         </div>
         <div className="row">
           <div className="float-end">
-            <button type="button" className="btn btn-primary float-end">Cancel </button>
-            <button type="button" className="btn btn-outline-primary float-end me-3" >Save </button>
+            <button type="button" className="btn btn-primary float-end">Save </button>
+            <button type="button" className="btn btn-outline-primary float-end me-3" >Cancel </button>
           </div>
         </div>
     </div>

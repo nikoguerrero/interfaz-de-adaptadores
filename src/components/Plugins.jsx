@@ -6,9 +6,9 @@ const Plugins = () => {
       <>
       <div className="row">
         <h1 className="">Plugins</h1>
-        <div className="d-grid  col-7 m-button-new ">
+        <div className="d-grid  col-5 m-button-new ">
         <button className="btn text-light  btn-new-pluging">
-          New Pluging
+          New + 
         </button>
         </div>
         
