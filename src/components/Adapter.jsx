@@ -6,10 +6,9 @@ const Adapter = (props) => {
 
   console.log(adapterArray);
   return (
-    <Fragment>
-      <div>
+      <Fragment>
         {adapterArray && adapterArray.map((item) => (
-          <div className="main-info" key={item.mainClass}>
+          <div key={item.mainClass}>
             <label>id:</label>
             <input type="text" defaultValue={item.id} />
             <label>dependencies:</label>
@@ -24,8 +23,7 @@ const Adapter = (props) => {
             />
           </div>
         ))}
-      </div>
-    </Fragment>
+      </Fragment>
   )
 };
 

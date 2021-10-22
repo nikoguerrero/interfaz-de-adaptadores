@@ -2,7 +2,6 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import Adapter from './components/Adapter';
 import { load } from 'js-yaml';
-import AdapterList from './AdapterList';
 import Main from './components/Main';
 
 const App = () => {
@@ -21,7 +20,6 @@ const App = () => {
   return (
     <div>
       <Adapter adapterArray={adapterArray}/>
-      <AdapterList />
       <Main/>
     </div>
   );
