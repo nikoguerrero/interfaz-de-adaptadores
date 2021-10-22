@@ -5,14 +5,13 @@ import { dump } from 'js-yaml';
 const Adapter = (props) => {
   const { adapterArray } = props;
 
-  const downloadToFile = (data, filename, contentType) => {
-    const a = document.createElement('a');
+  const downloadToFile = async (data, contentType) => {
     const file = new Blob([data], {type: contentType});
   
-    a.href = URL.createObjectURL(file);
-    a.download = filename;
-    a.click();
-    URL.revokeObjectURL(a.href);
+    const newHandle = await window.showSaveFilePicker();
+    const writableStream = await newHandle.createWritable();
+    await writableStream.write(file);
+    await writableStream.close();
   };
 
   const saveAdapter = (e) => {
