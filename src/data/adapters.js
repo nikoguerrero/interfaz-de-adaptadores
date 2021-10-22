@@ -17,6 +17,21 @@ const adapters = [
         name: "filter Clients",
         configuration:"./data/config/filterClients.yml"
     },
+    {
+        name: "calculate Models",
+        configuration:"./data/config/filterClients.yml"
+    },
+    {
+        name: "evaluate Conditions",
+        configuration:"./data/config/filterClients.yml"
+    },
+    {
+        name: "output Handler",
+        configuration:"./data/config/filterClients.yml"
+    },
+
+
+
 ];
 
 export default adapters;

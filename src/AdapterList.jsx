@@ -7,7 +7,14 @@ const AdapterList = () => {
       <ul>
         {
           adapters.map((item) => (
-            <li>{item.name}</li>
+            <section>
+              <div>
+                <button>
+                {item.name}
+                </button>
+              </div>
+            </section>
+           
           ))
         }
       </ul>
