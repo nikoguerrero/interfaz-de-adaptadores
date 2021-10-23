@@ -24,17 +24,17 @@ const adapters = [
   {
     id: 4,
     name: "calculate Models",
-    configuration: "./data/config/filterClients.yml"
+    configuration: "./data/config/calculateModels.yml"
   },
   {
     id: 5,
     name: "evaluate Conditions",
-    configuration: "./data/config/filterClients.yml"
+    configuration: "./data/config/evaluateConditions.yml"
   },
   {
     id: 6,
     name: "output Handler",
-    configuration: "./data/config/filterClients.yml"
+    configuration: "./data/config/outputHandler.yml"
   },
 ];
 
