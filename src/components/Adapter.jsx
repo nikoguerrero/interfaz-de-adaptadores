@@ -65,6 +65,8 @@ const Adapter = (props) => {
               </div>
             </div>
           </div>
+          <h5 className="text-primary">Config</h5>
+          
           <AdapterConfig
             key={item.id}
             config={item.config}
