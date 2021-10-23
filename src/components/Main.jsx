@@ -17,7 +17,7 @@ const Main = () => {
           <div className="col-6 vh-100 ">
             <Form />
           </div>
-          <div className="col-3 vh-100 bg-secondary bg-opacity-50">
+          <div className="col-3 vh-100 bg-secondary bg-opacity-25">
             <Orchestration />
           </div>
         </div>
