@@ -6,19 +6,19 @@ import Orchestration from './Orchestration';
 import Footer from './Footer';
 
 const Main = () => {
-  return (
-    <div>
-      <div className="container-fluid vh-100">
-        <Header />
-        <div className="row">
-          <div className="col-3 vh-100  bg-success">
-            <Plugins />
+    return (
+        <div>
+            <div className="container-fluid vh-100">
+      <Header/>
+      <div className="row">
+          <div className="col-3 vh-100  bg-secondary bg-opacity-10 ackground-plugins">
+            <Plugins/>
           </div>
-          <div className="col-6 vh-100  bg-warning">
-            <Form />
+          <div className="col-6 vh-100 ">
+            <Form/>
           </div>
-          <div className="col-3 vh-100 bg-primary">
-            <Orchestration />
+          <div className="col-3 vh-100 bg-secondary bg-opacity-50">
+            <Orchestration/>
           </div>
         </div>
         <Footer />

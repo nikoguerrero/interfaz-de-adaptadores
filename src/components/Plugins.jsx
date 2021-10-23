@@ -7,10 +7,10 @@ const Plugins = () => {
     <>
       <div className="row">
         <h1 className="">Plugins</h1>
-        <div className="d-grid  col-7 m-button-new ">
-          <button className="btn text-light  btn-new-pluging">
-            New Pluging
-          </button>
+        <div className="d-grid  col-5 m-button-new ">
+        <button className="btn text-light  btn-new-pluging">
+          New + 
+        </button>
         </div>
       </div>
       <div className="row mt-5">
