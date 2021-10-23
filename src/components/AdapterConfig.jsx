@@ -15,7 +15,7 @@ const AdapterPropertyList = ({propertyList}) => {
        typeof propertyList[key] !== 'object' ? 
         <div className="col-sm-5" key={index}>
           <div className="form-floating mb-3">
-            <input type="text" className="form-control" onChange={(e) => changePropertyValue(propertyList, key, e.target.value)}/>
+            <input type="text" className="form-control" defaultValue={propertyList[key]} onChange={(e) => changePropertyValue(propertyList, key, e.target.value)}/>
             <label>{firstToUpper(key)}</label>
           </div>
         </div> : 
