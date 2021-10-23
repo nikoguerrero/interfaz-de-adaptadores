@@ -1,31 +1,35 @@
-import React from 'react'
-import './style.css'
-import adapters from '../data/adapters'
-const Plugins = () => {
+import React from 'react';
+import adapters from '../data/adapters';
+import './style.css';
 
+const Plugins = () => {
     const showPlugins = () => {
         document.getElementById("adapters").style.display = "grid";
     }
 
     return (
         <>
-            <h1 className="">Plugins</h1>
-            <button className="btn text-light btn-new-pluging float-end" onClick={showPlugins}>
-                New Pluging
-            </button>
-            <div className="row mt-5">
-                <div id='adapters' className="gap-2 col-8  mx-auto list-adapters" style={{display:'none'}}>
-                <button type="button" class="btn btn-light adapters mt-2 ">Input Handler </button>
-                <button type="button" class="btn btn-light adapters mt-2">Key Finder </button>
-                <button type="button" class="btn btn-light adapters mt-2">Data Enricher </button>
-                <button type="button" class="btn btn-light adapters mt-2">Filter Client </button>
-                <button type="button" class="btn btn-light adapters mt-2">Calculate Models </button>
-                <button type="button" class="btn btn-light adapters mt-2">Evaluate Conditions </button>
-                <button type="button" class="btn btn-light adapters mt-2">Output Handler </button>
+            <div className="row">
+                <h1 className="">Plugins</h1>
+                <div className="d-grid  col-5 m-button-new ">
+                    <button className="btn text-light  btn-new-pluging" onClick={showPlugins}>
+                        New +
+                    </button>
+                </div>
             </div>
-        </div>
+            <div id='adapters' className="row mt-5" style={{ display: 'none' }}>
+                {adapters.map((item, index) => (
+                    <section key={index}>
+                        <div className="d-grid  col-8  mx-auto ">
+                            <button type="button" className="btn btn-light adapters mt-3 ">
+                                {item.name}
+                            </button>
+                        </div>
+                    </section>
+                ))}
+            </div>
         </>
-    )
-}
+    );
+};
 
-export default Plugins
+export default Plugins;

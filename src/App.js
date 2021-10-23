@@ -2,10 +2,9 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import Adapter from './components/Adapter';
 import { load } from 'js-yaml';
-import AdapterList from './AdapterList';
-import Main from './components/Main'
+import Main from './components/Main';
+
 const App = () => {
-  
   const [adapterArray, setAdapterArray] = useState([]);
 
   useEffect(() => {
@@ -15,16 +14,13 @@ const App = () => {
         const yamlObject = load(yamlText);
         // console.log(yamlObject);
         setAdapterArray(yamlObject);
-      }).catch((err) => console.log('failed to load yaml file', err)); 
+      }).catch((err) => console.log('failed to load yaml file', err));
   }, []);
 
   return (
     <div>
-      <Adapter 
-        adapterArray={adapterArray}
-      />
-      <AdapterList />
-      <Main/>
+      <Adapter adapterArray={adapterArray} />
+      <Main />
     </div>
   );
 };
