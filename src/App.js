@@ -7,7 +7,7 @@ const App = () => {
   const [adapterArray, setAdapterArray] = useState([]);
 
   useEffect(() => {
-    fetch('./data/config/evaluateConditions.yml')
+    fetch('./data/config/inputHandler.yml')
       .then((response) => response.text())
       .then((yamlText) => {
         const yamlObject = load(yamlText);

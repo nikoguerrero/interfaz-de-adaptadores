@@ -1,13 +1,6 @@
 import React, {Fragment} from 'react';
-
-const changePropertyValue = (object, objectKey, newValue) => {
-  console.log(object);
-  if (typeof object[objectKey] === 'number') {
-    object[objectKey] = Number(newValue);
-  } else {
-    object[objectKey] = newValue;
-  }
-};
+import deleteImg from '../assets/basurero-5.png';
+import more from '../assets/fab.png';
 
 const firstToUpper = (str) => {
   return str[0].toUpperCase() + str.substr(1);
@@ -31,6 +24,9 @@ const AdapterPropertyList = ({propertyList}) => {
             <AdapterPropertyList propertyList={propertyList[key]} />
           </div>
       )}
+      <div className="col-sm-1">
+        <img src={deleteImg} alt="" className="img-fluid" />
+      </div>
     </div>
   )
 };
@@ -51,7 +47,7 @@ const AdapterProperty = (props) => {
   } else if (typeof objectValue === 'object') {
     return <div>
       <h5 className="text-primary">{prefix}</h5>
-      <AdapterConfig key={objectKey} config={objectValue} />
+      <AdapterConfigWrapper key={objectKey} config={objectValue} />
     </div>
   } else {
     // return <div>
@@ -71,7 +67,7 @@ const AdapterProperty = (props) => {
   }
 };
 
-const AdapterConfig = ({ config }) => {
+const AdapterConfigWrapper = ({ config }) => {
   const configArray = Object.keys(config);
 
   return (
@@ -84,6 +80,18 @@ const AdapterConfig = ({ config }) => {
           objectValue={config[element]} />
       )}
     </div>
+  )
+}
+
+const AdapterConfig = ({ config }) => {
+  
+  return (
+    <Fragment>
+      <AdapterConfigWrapper config={config} />
+      <div className="col-sm-1">
+        <img src={more} alt="" className="" />
+      </div>
+    </Fragment>
   )
 };
 
