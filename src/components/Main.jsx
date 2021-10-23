@@ -6,25 +6,25 @@ import Orchestration from './Orchestration';
 import Footer from './Footer';
 
 const Main = () => {
-    return (
-        <div>
-            <div className="container-fluid vh-100">
-      <Header/>
-      <div className="row">
+  return (
+    <div>
+      <div className="container-fluid vh-100">
+        <Header />
+        <div className="row">
           <div className="col-3 vh-100  bg-secondary bg-opacity-10 ackground-plugins">
-            <Plugins/>
+            <Plugins />
           </div>
           <div className="col-6 vh-100 ">
-            <Form/>
+            <Form />
           </div>
           <div className="col-3 vh-100 bg-secondary bg-opacity-50">
-            <Orchestration/>
+            <Orchestration />
           </div>
         </div>
         <Footer />
       </div>
     </div>
   )
-}
+};
 
-export default Main
+export default Main;

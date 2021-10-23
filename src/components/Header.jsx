@@ -1,13 +1,12 @@
-import React from 'react'
+import React from 'react';
 
 const Header = () => {
-    return (
-        <div>
-           <nav className="navbar bg-dark" >
+  return (
+    <div>
+      <nav className="navbar bg-dark" >
+      </nav>
+    </div>
+  )
+};
 
-</nav>
-        </div>
-    )
-}
-
-export default Header
+export default Header;

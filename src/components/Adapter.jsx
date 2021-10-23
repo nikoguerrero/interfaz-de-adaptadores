@@ -5,19 +5,32 @@ import { dump } from 'js-yaml';
 const Adapter = (props) => {
   const { adapterArray } = props;
 
-  const downloadToFile = async (data, contentType) => {
-    const file = new Blob([data], {type: contentType});
-  
-    const newHandle = await window.showSaveFilePicker();
-    const writableStream = await newHandle.createWritable();
-    await writableStream.write(file);
-    await writableStream.close();
+  const downloadToFile = async (data, filename, contentType) => {
+    const file = new Blob([data], { type: contentType });
+
+    if (window.showSaveFilePicker !== undefined) {
+      const newHandle = await window.showSaveFilePicker({
+        types: [{
+          description: 'Yaml file',
+          accept: { 'text/plain': ['.yaml'] }
+        }]
+      });
+      const writableStream = await newHandle.createWritable();
+      await writableStream.write(file);
+      await writableStream.close();
+    } else {
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(file);
+      a.download = filename;
+      a.click();
+      URL.revokeObjectURL(a.href);
+    }
   };
 
-  const saveAdapter = (e) => {
+  const saveAdapter = () => {
     const yamlData = dump(adapterArray);
     console.log(yamlData);
-    downloadToFile(yamlData, 'myAdapter.yml', 'text/plain');
+    downloadToFile(yamlData, 'adapter.yml', 'text/plain');
   };
 
   return (
@@ -38,12 +51,12 @@ const Adapter = (props) => {
           />
         </div>
       ))}
-            <Fragment>
-    <button
-    onClick={saveAdapter}>
-    SAVE
-  </button>
-  </Fragment>
+      <Fragment>
+        <button
+          onClick={saveAdapter}>
+          SAVE
+        </button>
+      </Fragment>
     </Fragment>
   )
 };
