@@ -2,7 +2,10 @@ import React from 'react';
 import dumb from '../assets/basurero-5.png';
 import more from '../assets/fab.png';
 import './style.css';
-const Form = () => {
+
+const Form = ({adapter}) => {
+  const {id, mainClass,stepName, dependencies} = adapter
+
   return (
     <div>
       <h2 className="h1 text-center">Output Handler</h2>
@@ -10,25 +13,25 @@ const Form = () => {
       <div className="row g-2">
         <div className="col-sm-5">
           <div className="form-floating mb-3 ">
-            <input type="text" className="form-control" />
+            <input type="text" className="form-control" defaultValue={id} />
             <label>ID</label>
           </div>
         </div>
         <div className="col-sm-5">
           <div className="form-floating mb-3">
-            <input type="text" className="form-control" />
+            <input type="text" className="form-control" defaultValue={dependencies}/>
             <label>Dependencies</label>
           </div>
         </div>
         <div className="col-sm-5">
           <div className="form-floating mb-3">
-            <input type="text" className="form-control" />
+            <input type="text" className="form-control" defaultValue={stepName} />
             <label>StepName</label>
           </div>
         </div>
         <div className="col-sm-5">
           <div className="form-floating mb-3">
-            <input type="text" className="form-control" />
+            <input type="text" className="form-control" defaultValue={mainClass} />
             <label>MainClass</label>
           </div>
         </div>
@@ -37,7 +40,7 @@ const Form = () => {
       <div className="row g-2">
         <div className="col-sm-5">
           <div className="form-floating mb-3">
-            <input type="text" className="form-control" />
+            <input type="text" className="form-control"/>
             <label>RecordClass</label>
           </div>
         </div>
