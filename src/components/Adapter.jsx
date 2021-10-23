@@ -74,12 +74,19 @@ const Adapter = (props) => {
           />
         </div>
       ))}
-      <Fragment>
-        <button
-          onClick={saveAdapter}>
-          SAVE
-        </button>
-      </Fragment>
+      <div className="row">
+        <div className="float-end">
+          <button type="button" className="btn btn-primary float-end" onClick={saveAdapter}>
+            Save
+          </button>
+          <button
+            type="button"
+            className="btn btn-outline-primary float-end me-3"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
     </Fragment>
   )
 };
