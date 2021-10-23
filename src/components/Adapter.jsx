@@ -37,14 +37,34 @@ const Adapter = (props) => {
     <Fragment>
       {adapterArray && adapterArray.map((item) => (
         <div key={item.mainClass}>
-          <label>id:</label>
-          <input type="text" defaultValue={item.id} />
-          <label>dependencies:</label>
-          <input type="text" defaultValue={item.dependencies} />
-          <label>stepName:</label>
-          <input type="text" defaultValue={item.stepName} />
-          <label>mainClass:</label>
-          <input type="text" readOnly value={item.mainClass} />
+          <h2 className="h1 text-center">Output Handler</h2>
+          <h5 className="text-primary">Plugin Configuration</h5>
+          <div className="row g-2">
+            <div className="col-sm-5">
+              <div className="form-floating mb-3 ">
+                <input type="text" className="form-control" defaultValue={item.id} />
+                <label>ID</label>
+              </div>
+            </div>
+            <div className="col-sm-5">
+              <div className="form-floating mb-3">
+                <input type="text" className="form-control" defaultValue={item.dependencies}/>
+                <label>Dependencies</label>
+              </div>
+            </div>
+            <div className="col-sm-5">
+              <div className="form-floating mb-3">
+                <input type="text" className="form-control" defaultValue={item.stepName}/>
+                <label>StepName</label>
+              </div>
+            </div>
+            <div className="col-sm-5">
+              <div className="form-floating mb-3">
+                <input type="text" className="form-control" readOnly value={item.mainClass}/>
+                <label>MainClass</label>
+              </div>
+            </div>
+          </div>
           <AdapterConfig
             key={item.id}
             config={item.config}

@@ -1,6 +1,5 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import Adapter from './components/Adapter';
 import { load } from 'js-yaml';
 import Main from './components/Main';
 
@@ -19,8 +18,7 @@ const App = () => {
 
   return (
     <div>
-      <Adapter adapterArray={adapterArray} />
-      <Main />
+      <Main adapterArray={adapterArray}/>
     </div>
   );
 };

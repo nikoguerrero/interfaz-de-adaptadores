@@ -1,11 +1,11 @@
 import React from 'react';
 import Header from './Header';
 import Plugins from './Plugins';
-import Form from './Form';
 import Orchestration from './Orchestration';
 import Footer from './Footer';
+import Adapter from './Adapter';
 
-const Main = () => {
+const Main = ({adapterArray}) => {
   return (
     <div>
       <div className="container-fluid vh-100">
@@ -15,7 +15,7 @@ const Main = () => {
             <Plugins />
           </div>
           <div className="col-6 vh-100 ">
-            <Form />
+            <Adapter adapterArray={adapterArray}/>
           </div>
           <div className="col-3 vh-100 bg-secondary bg-opacity-50">
             <Orchestration />

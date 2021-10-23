@@ -2,6 +2,8 @@ import React from 'react';
 import dumb from '../assets/basurero-5.png';
 import more from '../assets/fab.png';
 import './style.css';
+import Adapter from './Adapter';
+
 const Form = () => {
   return (
     <div>
