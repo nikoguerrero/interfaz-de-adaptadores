@@ -1,18 +1,10 @@
 import React, { Fragment } from 'react';
 import AdapterConfig from './AdapterConfig';
 import { dump } from 'js-yaml';
+import changePropertyValue from '../helpers/helper.js';
 
 const Adapter = (props) => {
   const { adapterArray } = props;
-
-  const changePropertyValue = (object, objectKey, newValue) => {
-    console.log(object);
-    if (typeof object[objectKey] === 'number') {
-      object[objectKey] = Number(newValue);
-    } else {
-      object[objectKey] = newValue;
-    }
-  };
 
   const downloadToFile = async (data, filename, contentType) => {
     const file = new Blob([data], { type: contentType });
@@ -37,19 +29,14 @@ const Adapter = (props) => {
   };
 
   const saveAdapter = () => {
-    const yamlData = dump(adapterArrayCopy);
+    const yamlData = dump(adapterArray);
     console.log(yamlData);
     downloadToFile(yamlData, 'adapter.yml', 'text/plain');
   };
-
-  const adapterArrayCopy = [];
-  for (let index = 0; index < adapterArray.length; index++) {
-    adapterArrayCopy.push(Object.create(adapterArray[index]));
-  }
-
+  
   return (
     <Fragment>
-      {adapterArray && adapterArrayCopy.map((item) => (
+      {adapterArray && adapterArray.map((item) => (
         <div key={item.mainClass}>
           <h2 className="h1 text-center">Output Handler</h2>
           <h5 className="text-primary">Plugin Configuration</h5>

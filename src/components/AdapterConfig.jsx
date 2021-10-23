@@ -1,6 +1,7 @@
 import React, {Fragment} from 'react';
 import deleteImg from '../assets/basurero-5.png';
 import more from '../assets/fab.png';
+import changePropertyValue from '../helpers/helper.js';
 
 const firstToUpper = (str) => {
   return str[0].toUpperCase() + str.substr(1);
@@ -14,13 +15,12 @@ const AdapterPropertyList = ({propertyList}) => {
        typeof propertyList[key] !== 'object' ? 
         <div className="col-sm-5" key={index}>
           <div className="form-floating mb-3">
-            <input type="text" className="form-control" />
+            <input type="text" className="form-control" onChange={(e) => changePropertyValue(propertyList, key, e.target.value)}/>
             <label>{firstToUpper(key)}</label>
           </div>
         </div> : 
           <div key={index}>
             <h6 className="text-primary">{firstToUpper(key)}</h6>
-            {/* <AdapterConfig config={propertyList[key]} /> */}
             <AdapterPropertyList propertyList={propertyList[key]} />
           </div>
       )}
@@ -50,15 +50,11 @@ const AdapterProperty = (props) => {
       <AdapterConfigWrapper key={objectKey} config={objectValue} />
     </div>
   } else {
-    // return <div>
-    //   {prefix}
-    //   <input type="text" defaultValue={objectValue} onChange={(e) => changePropertyValue(object, objectKey, e.target.value)} />
-    // </div>
     return (
     <div className="row g-2">
       <div className="col-sm-5">
         <div className="form-floating mb-3">
-          <input type="text" className="form-control" defaultValue={objectValue}/>
+          <input type="text" className="form-control" defaultValue={objectValue} onChange={(e) => changePropertyValue(object, objectKey, e.target.value)}/>
           <label>{firstToUpper(objectKey)}</label>
         </div>
       </div>
@@ -83,11 +79,13 @@ const AdapterConfigWrapper = ({ config }) => {
   )
 }
 
-const AdapterConfig = ({ config }) => {
+const AdapterConfig = ({config}) => {
   
   return (
     <Fragment>
-      <AdapterConfigWrapper config={config} />
+      <AdapterConfigWrapper
+        config={config}
+      />
       <div className="col-sm-1">
         <img src={more} alt="" className="" />
       </div>
