@@ -2,10 +2,10 @@ import React, { Fragment } from 'react';
 import AdapterConfig from './AdapterConfig';
 import { dump } from 'js-yaml';
 import changePropertyValue from '../helpers/helper.js';
-import Dependecies from './Dependecies'
+import Dependencies from './Dependencies';
 
 const Adapter = (props) => {
-  const { adapterArray } = props;
+  const { adapterArray, show } = props;
 
   const downloadToFile = async (data, filename, contentType) => {
     const file = new Blob([data], { type: contentType });
@@ -34,6 +34,22 @@ const Adapter = (props) => {
     console.log(yamlData);
     downloadToFile(yamlData, 'adapter.yml', 'text/plain');
   };
+
+  const CancelOrSaveBtns = () => (
+    <div className="row">
+      <div className="float-end">
+        <button type="button" className="btn btn-primary float-end" onClick={saveAdapter}>
+          Save
+        </button>
+        <button
+          type="button"
+          className="btn btn-outline-primary float-end me-3"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+  );
   
   return (
     <Fragment>
@@ -51,7 +67,7 @@ const Adapter = (props) => {
             <div className="col-sm-5">
               <div className="form-floating mb-3">
                 {/* <input type="text" className="form-control" defaultValue={item.dependencies} onChange={(e) => changePropertyValue(item, 'dependencies', e.target.value)}/> */}
-                <Dependecies value={item.dependencies}/>
+                <Dependencies value={item.dependencies}/>
               </div>
             </div>
             <div className="col-sm-5">
@@ -75,19 +91,7 @@ const Adapter = (props) => {
           />
         </div>
       ))}
-      <div className="row">
-        <div className="float-end">
-          <button type="button" className="btn btn-primary float-end" onClick={saveAdapter}>
-            Save
-          </button>
-          <button
-            type="button"
-            className="btn btn-outline-primary float-end me-3"
-          >
-            Cancel
-          </button>
-        </div>
-      </div>
+      {show ? <CancelOrSaveBtns /> : null}
     </Fragment>
   )
 };

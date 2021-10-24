@@ -8,6 +8,7 @@ import Adapter from './Adapter';
 
 const Main = () => {
   const [adapterArray, setAdapterArray] = useState([]);
+  const [show, setShow] = useState(false);
 
   const showPluginForm = (configuration) => {
     fetch(configuration)
@@ -16,7 +17,7 @@ const Main = () => {
         const yamlJsonObject = load(yamlText);
         setAdapterArray(yamlJsonObject)
       }).catch((err) => console.log('failed to load yaml file', err));
-  }
+  };
 
   return (
     <div>
@@ -24,10 +25,10 @@ const Main = () => {
         <Header />
         <div className="row">
           <div className="col-3 vh-100  bg-secondary bg-opacity-10 ackground-plugins">
-            <Plugins showPluginForm={showPluginForm} />
+            <Plugins showPluginForm={showPluginForm} setShow={setShow}/>
           </div>
           <div className="col-6 vh-100 ">
-            <Adapter adapterArray={adapterArray} />
+            <Adapter adapterArray={adapterArray} show={show}/>
           </div>
           <div className="col-3 vh-100 bg-secondary bg-opacity-25">
             <Orchestration />
