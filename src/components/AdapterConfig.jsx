@@ -1,6 +1,4 @@
 import React, {Fragment} from 'react';
-import deleteImg from '../assets/basurero-5.png';
-import more from '../assets/fab.png';
 import changePropertyValue from '../helpers/helper.js';
 
 const firstToUpper = (str) => {
@@ -13,7 +11,7 @@ const AdapterPropertyList = ({propertyList}) => {
     <div className="row g-2">
       {keys.map((key, index) => 
        typeof propertyList[key] !== 'object' ? 
-        <div className="col-sm-5" key={index}>
+        <div className="col-sm-4" key={index}>
           <div className="form-floating mb-3">
             <input type="text" className="form-control" defaultValue={propertyList[key]} onChange={(e) => changePropertyValue(propertyList, key, e.target.value)}/>
             <label>{firstToUpper(key)}</label>
@@ -25,7 +23,22 @@ const AdapterPropertyList = ({propertyList}) => {
           </div>
       )}
       <div className="col-sm-1">
-        <img src={deleteImg} alt="" className="img-fluid" />
+      <button className="btn btn-ligth">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="40"
+              fill="currentColor"
+              className="bi bi-trash"
+              viewBox="0 0 16 16"
+            >
+              <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+              <path
+                fill-rule="evenodd"
+                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
+              />
+            </svg>
+          </button>
       </div>
     </div>
   )
@@ -87,7 +100,18 @@ const AdapterConfig = ({config}) => {
         config={config}
       />
       <div className="col-sm-1">
-        <img src={more} alt="" className="" />
+      <button className="btn btn-ligth">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="40"
+              fill="currentColor "
+              className="bi bi-plus-circle-fill  text-primary "
+              viewBox="0 0 16 16"
+            >
+              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+            </svg>
+          </button>
       </div>
     </Fragment>
   )
