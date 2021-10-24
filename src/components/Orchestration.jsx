@@ -1,6 +1,7 @@
 import React from 'react';
 import './style.css'
 const Orchestration = () => {
+
   return (
     <>
       <h2 className="h1 text-center mt-4">Orchestration</h2>
@@ -48,6 +49,10 @@ const Orchestration = () => {
           <button className="btn btn-new-pluging text-white"> Export </button>
         </div>
       </div>
+    
+     
+
+  
     </>
   );
 };

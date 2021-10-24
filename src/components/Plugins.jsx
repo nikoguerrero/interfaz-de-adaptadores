@@ -3,7 +3,7 @@ import adapters from '../data/adapters';
 import PluginButton from './PluginButton';
 import './style.css';
 
-const Plugins = ({ showPluginForm }) => {
+const Plugins = ({ showPluginForm, setShow }) => {
   const showPlugins = () => {
     document.getElementById("adapters").style.display = "grid";
   }
@@ -42,16 +42,10 @@ const Plugins = ({ showPluginForm }) => {
       </div>
       </div>
        <div id='adapters' className="row mt-3 " style={{ display: 'none' }}>
-          {/* <button className="btn text-light  btn-new-pluging" onClick={showPlugins}>
-            New +
-          </button>
-        </div>
-      </div>
-      <div id='adapters' className="row mt-5" style={{ display: 'none' }}> */} 
         {adapters.map((item, index) => (
           <section key={index}>
             <div className="d-grid  col-8  mx-auto ">
-              <PluginButton item={item} showPluginForm={showPluginForm} />
+              <PluginButton item={item} showPluginForm={showPluginForm} setShow={setShow}/>
             </div>
           </section>
         ))}
