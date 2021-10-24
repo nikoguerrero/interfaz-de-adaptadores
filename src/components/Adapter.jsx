@@ -43,7 +43,7 @@ const Adapter = (props) => {
         </button>
         <button
           type="button"
-          className="btn btn-outline-primary float-end me-3"
+          className="btn my-primary float-end me-3"
         >
           Cancel
         </button>
@@ -56,7 +56,7 @@ const Adapter = (props) => {
       {adapterArray && adapterArray.map((item) => (
         <div key={item.mainClass}>
           <h2 className="h1 text-center">{item.id}</h2>
-          <h5 className="text-primary">Plugin Configuration</h5>
+          <h5 className="my-primary">Plugin Configuration</h5>
           <div className="row g-2">
             <div className="col-sm-5">
               <div className="form-floating mb-3 ">
@@ -83,7 +83,7 @@ const Adapter = (props) => {
               </div>
             </div>
           </div>
-          <h5 className="text-primary">Config</h5>
+          <h5 className="my-primary">Config</h5>
           
           <AdapterConfig
             key={item.id}

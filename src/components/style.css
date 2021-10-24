@@ -1,8 +1,8 @@
 
 .adapters{
-    box-shadow: 5px  5px 5px  rgba(0, 0, 0, 0.302);
-   
+    box-shadow: 24px 24px 64px rgba(228, 228, 228, 0.96);
 }
+
 .m-button-new{
     margin-left:55%;
     margin-top:10%;
@@ -21,4 +21,15 @@
 .container-orchestration{
     height: 80%;
 }
+
+.btn-primary {
+    background-color: #007298 !important;
+    border-color: #007298 !important;
+}
+
+.my-primary {
+    color: #007298 !important;
+    border-color: #007298 !important;
+}
+
 

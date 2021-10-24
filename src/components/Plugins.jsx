@@ -27,7 +27,7 @@ const Plugins = (props) => {
       <div className="row">
         <h1 className="">Plugins</h1>
         <div className="d-grid  col-5 m-button-new ">
-          <button className="btn text-light  btn-new-pluging" onClick={showPlugins}>New +</button>
+          <button className="btn btn-primary" onClick={showPlugins}>+ New</button>
         </div>
       </div>
       
