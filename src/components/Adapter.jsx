@@ -50,7 +50,7 @@ const Adapter = (props) => {
       </div>
     </div>
   );
-  
+
   return (
     <Fragment>
       {adapterArray && adapterArray.map((item) => (
