@@ -37,8 +37,10 @@ const Adapter = (props) => {
 
   const adapterId = 'adapter-'.concat(Date.now());
 
-  const submitAdapter = () => {
-    localStorage.setItem(adapterId, saveAdapter);
+  const submitAdapter = (adapterArray) => {
+    const adapterJson = JSON.stringify(adapterArray);
+    localStorage.setItem(adapterId, adapterJson);
+    console.log(localStorage);
   };
 
   const cancelOrchestration = () => {
@@ -49,7 +51,7 @@ const Adapter = (props) => {
   const CancelOrSaveBtns = () => (
     <div className="row">
       <div className="float-end">
-        <button type="button" className="btn btn-primary float-end" onClick={submitAdapter}>
+        <button type="button" className="btn btn-primary float-end" onClick={() => submitAdapter(adapterArray)}>
           Save
         </button>
         <button
