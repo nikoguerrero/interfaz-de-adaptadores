@@ -1,11 +1,14 @@
 import React from 'react';
 import './style.css';
 
-const PluginButton = ({ item, showPluginForm }) => {
+const PluginButton = (props) => {
+  const { item, showPluginForm, setShow } = props;
   const { name, configuration } = item;
   const handleShowPluginForm = () => {
-    showPluginForm(configuration)
-  }
+    showPluginForm(configuration);
+    setShow(true);
+  };
+
   return (
     <>
       <div className="row">
