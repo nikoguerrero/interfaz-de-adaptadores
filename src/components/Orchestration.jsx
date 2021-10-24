@@ -3,7 +3,7 @@ import './style.css'
 const Orchestration = () => {
   return (
     <>
-      <h2 className="h1 text-center">Orchestration</h2>
+      <h2 className="h1 text-center mt-4">Orchestration</h2>
       <div className="row container-orchestration overflow-auto mt-2">
         <div className="col-12">
           <div className="row justify-content-center">

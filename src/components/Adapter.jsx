@@ -39,7 +39,7 @@ const Adapter = (props) => {
     <Fragment>
       {adapterArray && adapterArray.map((item) => (
         <div key={item.mainClass}>
-          <h2 className="h1 text-center">Output Handler</h2>
+          <h2 className="h1 text-center mt-4 ">Output Handler</h2>
           <h5 className="text-primary">Plugin Configuration</h5>
           <div className="row g-2">
             <div className="col-sm-5">
