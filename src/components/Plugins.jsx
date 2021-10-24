@@ -5,7 +5,7 @@ import SearchBar from './SearchBar';
 import './style.css';
 
 const Plugins = (props) => {
-  const { showPluginForm, show, setShow } = props;
+  const { showPluginForm, setShow } = props;
   const [filteredAdapters, setFilteredAdapters] = useState(adapters);
   const [search, setSearch] = useState(false);
 
@@ -17,7 +17,7 @@ const Plugins = (props) => {
   const handleSearch = (adapterText) => {
     let value = adapterText.toLowerCase();
     let filteredAdapters = [];
-    filteredAdapters = adapters.filter((adapter) => adapter.name.search(value) !== -1);
+    filteredAdapters = adapters.filter((adapter) => adapter.name.toLowerCase().search(value) !== -1);
     console.log(filteredAdapters);
     setFilteredAdapters(filteredAdapters);
   };

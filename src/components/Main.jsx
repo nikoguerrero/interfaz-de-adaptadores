@@ -31,7 +31,7 @@ const Main = () => {
             <Adapter adapterArray={adapterArray} show={show}/>
           </div>
           <div className="col-3 vh-100 bg-secondary bg-opacity-25">
-            <Orchestration />
+            {show ? <Orchestration /> : null}
           </div>
         </div>
         <Footer />
