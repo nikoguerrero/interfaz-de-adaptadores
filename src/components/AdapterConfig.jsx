@@ -8,7 +8,7 @@ const firstToUpper = (str) => {
 const AdapterPropertyList = ({propertyList}) => {
   const keys = Object.keys(propertyList);
   return (
-    <div className="row g-2">
+    <div className="row g-2 ">
       {keys.map((key, index) => 
        typeof propertyList[key] !== 'object' ? 
         <div className="col-sm-4" key={index}>
