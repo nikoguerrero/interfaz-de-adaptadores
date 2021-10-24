@@ -1,9 +1,9 @@
 import React from 'react';
-import Dependecies from './Dependecies'
+import Dependecies from './Dependecies';
 import './style.css';
 
 const Form = ({adapter}) => {
-  const {id, mainClass,stepName, dependencies} = adapter
+  const {id, mainClass, stepName} = adapter;
 
   return (
     <div>
