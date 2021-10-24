@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import AdapterConfig from './AdapterConfig';
 import { dump } from 'js-yaml';
 import changePropertyValue from '../helpers/helper.js';
+import Dependecies from './Dependecies'
 
 const Adapter = (props) => {
   const { adapterArray } = props;
@@ -49,8 +50,8 @@ const Adapter = (props) => {
             </div>
             <div className="col-sm-5">
               <div className="form-floating mb-3">
-                <input type="text" className="form-control" defaultValue={item.dependencies} onChange={(e) => changePropertyValue(item, 'dependencies', e.target.value)}/>
-                <label>Dependencies</label>
+                {/* <input type="text" className="form-control" defaultValue={item.dependencies} onChange={(e) => changePropertyValue(item, 'dependencies', e.target.value)}/> */}
+                <Dependecies value={item.dependencies}/>
               </div>
             </div>
             <div className="col-sm-5">

@@ -26,7 +26,7 @@ const Dependecies = () => {
       };
     return (
         <div>
-             <Select options ={options} styles={style} />
+             <Select options={options} styles={style}  />
         </div>
     )
 }
