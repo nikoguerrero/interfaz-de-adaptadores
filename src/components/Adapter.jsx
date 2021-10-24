@@ -35,16 +35,26 @@ const Adapter = (props) => {
     downloadToFile(yamlData, 'adapter.yml', 'text/plain');
   };
 
+  const adapterId = 'adapter-'.concat(Date.now());
+
+  const submitAdapter = () => {
+    localStorage.setItem(adapterId, saveAdapter);
+  };
+
+  const cancelOrchestration = () => {
+    window.location.reload();
+    localStorage.clear();
+  }
+
   const CancelOrSaveBtns = () => (
     <div className="row">
       <div className="float-end">
-        <button type="button" className="btn btn-primary float-end" onClick={saveAdapter}>
+        <button type="button" className="btn btn-primary float-end" onClick={submitAdapter}>
           Save
         </button>
         <button
           type="button"
-          className="btn my-primary float-end me-3"
-        >
+          className="btn my-primary float-end me-3" onClick={cancelOrchestration}>
           Cancel
         </button>
       </div>
