@@ -32,9 +32,11 @@ const Main = () => {
           <div className="col-3 vh-100 bg-secondary bg-opacity-25">
             <Orchestration />
           </div>
+        </div >
+        <div >
+          <Footer />
         </div>
-        <Footer />
-      </div>
+        </div>
     </div>
   )
 };
