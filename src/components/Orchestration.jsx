@@ -1,6 +1,35 @@
 import React from 'react';
-import './style.css'
-const Orchestration = () => {
+import { dump } from 'js-yaml';
+import './style.css';
+
+const Orchestration = ({orchArray}) => {
+  const downloadToFile = async (data, filename, contentType) => {
+    const file = new Blob([data], { type: contentType });
+
+    if (window.showSaveFilePicker !== undefined) {
+      const newHandle = await window.showSaveFilePicker({
+        types: [{
+          description: 'Yaml file',
+          accept: { 'text/plain': ['.yaml'] }
+        }]
+      });
+      const writableStream = await newHandle.createWritable();
+      await writableStream.write(file);
+      await writableStream.close();
+    } else {
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(file);
+      a.download = filename;
+      a.click();
+      URL.revokeObjectURL(a.href);
+    }
+  };
+
+  const exportToYaml = (orchArray) => {
+    const yamlData = dump(orchArray);
+    console.log(yamlData);
+    downloadToFile(yamlData, 'adapter.yaml', 'text/plain');
+  };
 
   return (
     <>
@@ -35,7 +64,10 @@ const Orchestration = () => {
           <button className="btn btn-danger font-weight-bold"> Exit </button>
         </div>
         <div className="d-grid  col-sm-5  ">
-          <button className="btn btn-primary font-weight-bold"> Export </button>
+          <button 
+          className="btn btn-primary font-weight-bold"
+          onClick={() => exportToYaml(orchArray)}
+          > Export </button>
         </div>
       </div>
     
