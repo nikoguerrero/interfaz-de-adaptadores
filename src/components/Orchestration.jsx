@@ -31,6 +31,9 @@ const Orchestration = () => {
         </div>
       </div>
       <div className="row justify-content-center mt-5">
+      <div className="d-grid  col-sm-5  ">
+          <button className="btn btn-danger font-weight-bold"> Exit </button>
+        </div>
         <div className="d-grid  col-sm-5  ">
           <button className="btn btn-primary font-weight-bold"> Export </button>
         </div>
