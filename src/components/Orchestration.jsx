@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import { dump } from 'js-yaml';
 import './style.css';
 
-const Orchestration = ({orchArray}) => {
+const Orchestration = ({ orchArray }) => {
   const downloadToFile = async (data, filename, contentType) => {
     const file = new Blob([data], { type: contentType });
 
@@ -38,13 +38,15 @@ const Orchestration = ({orchArray}) => {
         <div className="col-12">
           <div className="row justify-content-center">
             <div className="d-grid  col-sm-7   ">
-              <button
-                type="button"
-                className="btn btn-secondary text-white  mt-3 "
-              >
-                Plugin Info
-              </button>
-              <button type="button" className="btn btn-secondary text-white  mt-3 "> Plugin Info</button>
+              {
+                orchArray.map((adapter) => (
+                  <Fragment>
+                    <button type="button" className="btn btn-secondary text-white  mt-3 "> {adapter}</button>
+                  </Fragment>
+
+                ))
+              }
+              {/* <button type="button" className="btn btn-secondary text-white  mt-3 "> Plugin Info</button>
           <button type="button" className="btn btn-secondary text-white  mt-3 "> Plugin Info</button>
           <button type="button" className="btn btn-secondary text-white  mt-3 "> Plugin Info</button>
           <button type="button" className="btn btn-secondary text-white  mt-3 "> Plugin Info</button>
@@ -53,24 +55,23 @@ const Orchestration = ({orchArray}) => {
           <button type="button" className="btn btn-secondary text-white  mt-3 "> Plugin Info</button>
           <button type="button" className="btn btn-secondary text-white  mt-3 "> Plugin Info</button>
           <button type="button" className="btn btn-secondary text-white  mt-3 "> Plugin Info</button>
-          <button type="button" className="btn btn-secondary text-white  mt-3 "> Plugin Info</button>
-          <button type="button" className="btn btn-secondary text-white  mt-3 "> Plugin Info</button>
+            <button type="button" className="btn btn-secondary text-white  mt-3 "> Plugin Info</button>*/}
             </div>
           </div>
         </div>
       </div>
       <div className="row justify-content-center mt-5">
         <div className="d-grid  col-sm-5  ">
-          <button 
-          className="btn btn-primary font-weight-bold"
-          onClick={() => exportToYaml(orchArray)}
+          <button
+            className="btn btn-primary font-weight-bold"
+            onClick={() => exportToYaml(orchArray)}
           > Export </button>
         </div>
       </div>
-    
-     
 
-  
+
+
+
     </>
   );
 };

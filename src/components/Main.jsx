@@ -37,7 +37,7 @@ const Main = ({initialOrchArray}) => {
         <Header />
         </div>
         <div className="row">
-          <div className="col-3 vh-100  bg-secondary bg-opacity-10   overflow-auto">
+          <div className="col-3 vh-100  bg-secondary bg-opacity-10 ackground-plugins">
             <Plugins showPluginForm={showPluginForm} setShow={setShow} />
           </div>
           <div className="col-6 vh-100 overflow-auto ">
@@ -47,7 +47,7 @@ const Main = ({initialOrchArray}) => {
             {show ? <Orchestration orchArray={orchArray}/> : null}
           </div>
         </div>
-        <div className="row   bg-dark bg-gradient">
+        <div className="row bg-dark bg-gradient">
           <Footer />
         </div>
       </div>
