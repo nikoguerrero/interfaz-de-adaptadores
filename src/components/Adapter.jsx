@@ -6,7 +6,8 @@ import Dependencies from './Dependencies';
 import './style.css'
 
 const Adapter = (props) => {
-  const { adapterArray, show } = props;
+  // Paso 4: Recibimos desde el componente Padre 'Main' el metodo saveAdapterIDInList
+  const { adapterArray, show, saveAdapterIDInList } = props;
 
   const downloadToFile = async (data, filename, contentType) => {
     const file = new Blob([data], { type: contentType });
@@ -41,6 +42,9 @@ const Adapter = (props) => {
   const submitAdapter = (adapterArray) => {
     const adapterJson = JSON.stringify(adapterArray);
     localStorage.setItem(adapterId, adapterJson);
+    /*Paso 5: Aqui estamos almacenando el adapterId en el estado llamado 'adapterIDList' usando el metodo enviado 
+    por el componente padre 'Main', la cual manejara los ID de los adaptadores que tendra la orquestacion*/
+    saveAdapterIDInList(adapterId);
     console.log(localStorage);
   };
 
