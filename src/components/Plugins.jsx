@@ -25,7 +25,7 @@ const Plugins = (props) => {
   return (
     <>
       <div className="row">
-        <h1 className="">Plugins</h1>
+        <h1 className="mt-4">Plugins</h1>
         <div className="d-grid  col-5 m-button-new ">
           <button className="btn btn-primary" onClick={showPlugins}>+ New</button>
         </div>
@@ -42,6 +42,7 @@ const Plugins = (props) => {
           </section>
         ))}
       </div>
+     
     </>
   );
 };

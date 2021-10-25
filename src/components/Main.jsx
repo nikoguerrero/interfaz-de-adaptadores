@@ -21,25 +21,27 @@ const Main = () => {
 
   return (
     <div>
-      <div className="container-fluid vh-100">
+      <div className="container-fluid vh-100 ">
+      <div className="row  bg-light">
         <Header />
+        </div>
         <div className="row">
-          <div className="col-3 vh-100  bg-secondary bg-opacity-10 ackground-plugins">
-            <Plugins showPluginForm={showPluginForm} setShow={setShow}/>
+          <div className="col-3 vh-100  bg-secondary bg-opacity-10   overflow-auto">
+            <Plugins showPluginForm={showPluginForm} setShow={setShow} />
           </div>
-          <div className="col-6 vh-100 ">
-            <Adapter adapterArray={adapterArray} show={show}/>
+          <div className="col-6 vh-100 overflow-auto ">
+            <Adapter adapterArray={adapterArray} show={show} />
           </div>
           <div className="col-3 vh-100 bg-secondary bg-opacity-25">
             {show ? <Orchestration /> : null}
           </div>
-        </div >
-        <div >
+        </div>
+        <div className="row   bg-dark bg-gradient">
           <Footer />
         </div>
-        </div>
+      </div>
     </div>
-  )
+  );
 };
 
 export default Main;
