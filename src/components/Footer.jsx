@@ -12,10 +12,11 @@ const Footer = () => {
             className="text-center p-3"
             style={ style }
           >
-            © 2020 Copyright:
-            <a className="text-dark" href="https://mdbootstrap.com/">
-              MDBootstrap.com
+            © 2021 
+            <a className="text-white" href="https://soluciones.equifax.cl/">
+                 Equifax.Inc   
             </a>
+              .   All rights reserved.
           </div>
          {/* <div className="p-3 mb-1 bg-dark bg-gradient d-flex"></div> */}
         </footer>
