@@ -23,6 +23,7 @@ const Orchestration = ({orchArray}) => {
       a.click();
       URL.revokeObjectURL(a.href);
     }
+    localStorage.clear();
   };
 
   const exportToYaml = (orchArray) => {

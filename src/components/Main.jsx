@@ -41,7 +41,7 @@ const Main = ({initialOrchArray}) => {
             <Plugins showPluginForm={showPluginForm} setShow={setShow} />
           </div>
           <div className="col-6 vh-100 overflow-auto ">
-            <Adapter adapterArray={adapterArray} show={show} orchArray={orchArray} setOrchArray={setOrchArray}/>
+            <Adapter adapterArray={adapterArray} show={show} orchArray={orchArray} setOrchArray={setOrchArray} setAdapterArray={setAdapterArray}/>
           </div>
           <div className="col-3 vh-100 bg-secondary bg-opacity-25">
             {show ? <Orchestration orchArray={orchArray}/> : null}
