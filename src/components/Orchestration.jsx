@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import { dump } from 'js-yaml';
 import './style.css'
 
-const Orchestration = ({orchArray}) => {
+const Orchestration = ({ orchArray }) => {
   const downloadToFile = async (data, filename, contentType) => {
     const file = new Blob([data], { type: contentType });
 
@@ -23,6 +23,7 @@ const Orchestration = ({orchArray}) => {
       a.click();
       URL.revokeObjectURL(a.href);
     }
+    localStorage.clear();
   };
 
   const exportToYaml = (orchArray) => {
@@ -38,23 +39,13 @@ const Orchestration = ({orchArray}) => {
         <div className="col-12">
           <div className="row justify-content-center">
             <div className="d-grid  col-sm-7   ">
-              <button
-                type="button"
-                className="btn btn-secondary text-white  mt-3 "
-              >
-                Plugin Info
-              </button>
-              <button type="button" className="btn btn-secondary text-white  mt-3 "> Plugin Info</button>
-          <button type="button" className="btn btn-secondary text-white  mt-3 "> Plugin Info</button>
-          <button type="button" className="btn btn-secondary text-white  mt-3 "> Plugin Info</button>
-          <button type="button" className="btn btn-secondary text-white  mt-3 "> Plugin Info</button>
-          <button type="button" className="btn btn-secondary text-white  mt-3 "> Plugin Info</button>
-          <button type="button" className="btn btn-secondary text-white  mt-3 "> Plugin Info</button>
-          <button type="button" className="btn btn-secondary text-white  mt-3 "> Plugin Info</button>
-          <button type="button" className="btn btn-secondary text-white  mt-3 "> Plugin Info</button>
-          <button type="button" className="btn btn-secondary text-white  mt-3 "> Plugin Info</button>
-          <button type="button" className="btn btn-secondary text-white  mt-3 "> Plugin Info</button>
-          <button type="button" className="btn btn-secondary text-white  mt-3 "> Plugin Info</button>
+              {
+                orchArray.map((adapter, index) => (
+                  <Fragment>
+                    <button type="button" className="btn btn-secondary text-white  mt-3 " key={index}> {adapter.id}</button>
+                  </Fragment>
+                ))
+              }
             </div>
           </div>
         </div>
@@ -64,16 +55,16 @@ const Orchestration = ({orchArray}) => {
           <button className="btn  font-weight-bold btn-exit text-white "> Exit </button>
         </div>
         <div className="d-grid  col-sm-5  ">
-          <button 
-          className="btn btn-primary font-weight-bold"
-          onClick={() => exportToYaml(orchArray)}
+          <button
+            className="btn btn-primary font-weight-bold"
+            onClick={() => exportToYaml(orchArray)}
           > Export </button>
         </div>
       </div>
-    
-     
 
-  
+
+
+
     </>
   );
 };
