@@ -1,7 +1,8 @@
 import React from 'react';
-import Select from 'react-select';
+import Select , { components, PlaceholderProps } from 'react-select';
 
 const Dependecies = () => {
+  
   const options = [
     { value: 'chocolate', label: 'Chocolate' },
     { value: 'strawberry', label: 'Strawberry' },
@@ -26,7 +27,10 @@ const Dependecies = () => {
   };
   return (
     <div>
-      <Select options={options} styles={style} />
+      <Select
+      placeholder={'Dependencies'} 
+      options={options} 
+      styles={style} />
     </div>
   )
 };
