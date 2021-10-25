@@ -1,6 +1,5 @@
 import React, { Fragment, useState } from 'react';
 import changePropertyValue from '../helpers/helper.js';
-
 const firstToUpper = (str) => {
   return str[0].toUpperCase() + str.substr(1);
 };
@@ -16,7 +15,7 @@ const AdapterPropertyList = ({ array, triggerRender, propertyList }) => {
   };
 
   return (
-    <div className="row g-2">
+    <div className="row g-2 ">
       {keys.map((key, index) =>
         typeof propertyList[key] !== 'object' ?
           <div className="col-sm-4" key={index}>

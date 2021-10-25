@@ -42,6 +42,7 @@ const Plugins = (props) => {
           </section>
         ))}
       </div>
+     
     </>
   );
 };

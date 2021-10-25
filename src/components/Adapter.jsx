@@ -3,6 +3,7 @@ import AdapterConfig from './AdapterConfig';
 import { dump } from 'js-yaml';
 import changePropertyValue from '../helpers/helper.js';
 import Dependencies from './Dependencies';
+import './style.css'
 
 const Adapter = (props) => {
   const { adapterArray, show } = props;
@@ -67,7 +68,7 @@ const Adapter = (props) => {
     <Fragment>
       {adapterArray && adapterArray.map((item) => (
         <div key={item.mainClass}>
-          <h2 className="h1 text-center">{item.id}</h2>
+          <h2 className="h1 text-center mt-4">{item.id}</h2>
           <h5 className="my-primary">Plugin Configuration</h5>
           <div className="row g-2">
             <div className="col-sm-5">
@@ -96,12 +97,11 @@ const Adapter = (props) => {
             </div>
           </div>
           <h5 className="my-primary">Config</h5>
-          
           <AdapterConfig
             key={item.id}
             config={item.config}
           />
-        </div>
+          </div>
       ))}
       {show ? <CancelOrSaveBtns /> : null}
     </Fragment>
