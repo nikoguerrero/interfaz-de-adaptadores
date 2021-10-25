@@ -8,9 +8,8 @@ import icon5 from '../assets/person-circle.svg'
 const Header = () => {
   return (
     <>
-    <div className="container-fluid">
-      <nav className="navbar navbar-light bg-light shadow ">
-        
+  
+      <nav className="navbar navbar-light bg-light ">
         <div className="me-5">
          <img src={logo} alt="" /> 
         </div>
@@ -22,7 +21,7 @@ const Header = () => {
             <img src={icon5} className="me-4" alt="" />
           </form>
       </nav>
-        </div>
+     
     </>
   );
 }

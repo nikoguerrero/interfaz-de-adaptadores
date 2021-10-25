@@ -18,7 +18,7 @@ const AdapterPropertyList = ({ array, triggerRender, propertyList }) => {
     <div className="row g-2 ">
       {keys.map((key, index) =>
         typeof propertyList[key] !== 'object' ?
-          <div className="col-sm-4" key={index}>
+          <div className="col-sm-5" key={index}>
             <div className="form-floating mb-3">
               <input type="text" className="form-control" value={propertyList[index]} onChange={(e) => changePropertyValue(propertyList, key, e.target.value)} />
               <label>{firstToUpper(key)}</label>
@@ -93,7 +93,7 @@ const AdapterProperty = (props) => {
 const AdapterConfigWrapper = ({ config, triggerRender }) => {
   const configArray = Object.keys(config);
   return (
-    <div>
+    <div className="">
       {configArray.map((element) =>
         <AdapterProperty
           key={element}

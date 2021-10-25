@@ -7,10 +7,10 @@ const Footer = () => {
     }
     return (
       <>
-        <footer className="bg-light text-center text-lg-start text-white  ">
+        <footer className=" bg-dark bg-gradient text-center text-lg-start text-white  ">
           <div
-            className="text-center p-3"
-            style={ style }
+            className="text-center p-3  bg-dark bg-gradient"
+          
           >
             © 2021 
             <a className="text-white" href="https://soluciones.equifax.cl/">
