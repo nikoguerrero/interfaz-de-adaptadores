@@ -3,6 +3,7 @@ import AdapterConfig from './AdapterConfig';
 import { dump } from 'js-yaml';
 import changePropertyValue from '../helpers/helper.js';
 import Dependencies from './Dependencies';
+import './style.css'
 
 const Adapter = (props) => {
   const { adapterArray, show } = props;
@@ -35,28 +36,40 @@ const Adapter = (props) => {
     downloadToFile(yamlData, 'adapter.yml', 'text/plain');
   };
 
+  const adapterId = 'adapter-'.concat(Date.now());
+
+  const submitAdapter = (adapterArray) => {
+    const adapterJson = JSON.stringify(adapterArray);
+    localStorage.setItem(adapterId, adapterJson);
+    console.log(localStorage);
+  };
+
+  const cancelOrchestration = () => {
+    window.location.reload();
+    localStorage.clear();
+  }
+
   const CancelOrSaveBtns = () => (
     <div className="row">
       <div className="float-end">
-        <button type="button" className="btn btn-primary float-end" onClick={saveAdapter}>
+        <button type="button" className="btn btn-primary float-end" onClick={() => submitAdapter(adapterArray)}>
           Save
         </button>
         <button
           type="button"
-          className="btn btn-outline-primary float-end me-3"
-        >
+          className="btn my-primary float-end me-3" onClick={cancelOrchestration}>
           Cancel
         </button>
       </div>
     </div>
   );
-  
+
   return (
     <Fragment>
       {adapterArray && adapterArray.map((item) => (
         <div key={item.mainClass}>
-          <h2 className="h1 text-center mt-4 ">Output Handler</h2>
-          <h5 className="text-primary">Plugin Configuration</h5>
+          <h2 className="h1 text-center mt-4">{item.id}</h2>
+          <h5 className="my-primary">Plugin Configuration</h5>
           <div className="row g-2">
             <div className="col-sm-5">
               <div className="form-floating mb-3 ">
@@ -83,13 +96,12 @@ const Adapter = (props) => {
               </div>
             </div>
           </div>
-          <h5 className="text-primary">Config</h5>
-          
+          <h5 className="my-primary">Config</h5>
           <AdapterConfig
             key={item.id}
             config={item.config}
           />
-        </div>
+          </div>
       ))}
       {show ? <CancelOrSaveBtns /> : null}
     </Fragment>
