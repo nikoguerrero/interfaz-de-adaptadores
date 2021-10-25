@@ -39,23 +39,12 @@ const Orchestration = ({ orchArray }) => {
           <div className="row justify-content-center">
             <div className="d-grid  col-sm-7   ">
               {
-                orchArray.map((adapter) => (
+                orchArray.map((adapter, index) => (
                   <Fragment>
-                    <button type="button" className="btn btn-secondary text-white  mt-3 "> {adapter}</button>
+                    <button type="button" className="btn btn-secondary text-white  mt-3 " key={index}> {adapter.id}</button>
                   </Fragment>
-
                 ))
               }
-              {/* <button type="button" className="btn btn-secondary text-white  mt-3 "> Plugin Info</button>
-          <button type="button" className="btn btn-secondary text-white  mt-3 "> Plugin Info</button>
-          <button type="button" className="btn btn-secondary text-white  mt-3 "> Plugin Info</button>
-          <button type="button" className="btn btn-secondary text-white  mt-3 "> Plugin Info</button>
-          <button type="button" className="btn btn-secondary text-white  mt-3 "> Plugin Info</button>
-          <button type="button" className="btn btn-secondary text-white  mt-3 "> Plugin Info</button>
-          <button type="button" className="btn btn-secondary text-white  mt-3 "> Plugin Info</button>
-          <button type="button" className="btn btn-secondary text-white  mt-3 "> Plugin Info</button>
-          <button type="button" className="btn btn-secondary text-white  mt-3 "> Plugin Info</button>
-            <button type="button" className="btn btn-secondary text-white  mt-3 "> Plugin Info</button>*/}
             </div>
           </div>
         </div>
