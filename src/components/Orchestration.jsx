@@ -1,8 +1,36 @@
-import React, { Fragment } from 'react';
-import './style.css'
+import React, {Fragment} from 'react';
+import { dump } from 'js-yaml';
+import './style.css';
 
-// Paso 7 : Se recibe desde el componente 'Main' la propiedad adapterIDList
-const Orchestration = ({ adapterIDList }) => {
+const Orchestration = ({ orchArray }) => {
+  const downloadToFile = async (data, filename, contentType) => {
+    const file = new Blob([data], { type: contentType });
+
+    if (window.showSaveFilePicker !== undefined) {
+      const newHandle = await window.showSaveFilePicker({
+        types: [{
+          description: 'Yaml file',
+          accept: { 'text/plain': ['.yaml'] }
+        }]
+      });
+      const writableStream = await newHandle.createWritable();
+      await writableStream.write(file);
+      await writableStream.close();
+    } else {
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(file);
+      a.download = filename;
+      a.click();
+      URL.revokeObjectURL(a.href);
+    }
+  };
+
+  const exportToYaml = (orchArray) => {
+    const yamlData = dump(orchArray);
+    console.log(yamlData);
+    downloadToFile(yamlData, 'adapter.yaml', 'text/plain');
+  };
+
   return (
     <>
       <h2 className="h1 text-center mt-4">Orchestration</h2>
@@ -10,16 +38,8 @@ const Orchestration = ({ adapterIDList }) => {
         <div className="col-12">
           <div className="row justify-content-center">
             <div className="d-grid  col-sm-7   ">
-              {/* <button
-                type="button"
-                className="btn btn-secondary text-white  mt-3 "
-              >
-                Plugin Info
-              </button> */}
               {
-                // Paso 8: Con la propiedad enviada por el componente padre 'Main, 
-                // iteramos y mostramos los ID de los adaptadores de la orquestacion
-                adapterIDList.map((adapter) => (
+                orchArray.map((adapter) => (
                   <Fragment>
                     <button type="button" className="btn btn-secondary text-white  mt-3 "> {adapter}</button>
                   </Fragment>
@@ -42,7 +62,10 @@ const Orchestration = ({ adapterIDList }) => {
       </div>
       <div className="row justify-content-center mt-5">
         <div className="d-grid  col-sm-5  ">
-          <button className="btn btn-primary font-weight-bold"> Export </button>
+          <button
+            className="btn btn-primary font-weight-bold"
+            onClick={() => exportToYaml(orchArray)}
+          > Export </button>
         </div>
       </div>
 

@@ -1,57 +1,21 @@
 import React, { Fragment } from 'react';
 import AdapterConfig from './AdapterConfig';
-import { dump } from 'js-yaml';
 import changePropertyValue from '../helpers/helper.js';
 import Dependencies from './Dependencies';
 import './style.css'
 
 const Adapter = (props) => {
-  // Paso 4: Recibimos desde el componente Padre 'Main' el metodo saveAdapterIDInList
-  const { adapterArray, show, saveAdapterIDInList } = props;
-
-  const downloadToFile = async (data, filename, contentType) => {
-    const file = new Blob([data], { type: contentType });
-
-    if (window.showSaveFilePicker !== undefined) {
-      const newHandle = await window.showSaveFilePicker({
-        types: [{
-          description: 'Yaml file',
-          accept: { 'text/plain': ['.yaml'] }
-        }]
-      });
-      const writableStream = await newHandle.createWritable();
-      await writableStream.write(file);
-      await writableStream.close();
-    } else {
-      const a = document.createElement('a');
-      a.href = URL.createObjectURL(file);
-      a.download = filename;
-      a.click();
-      URL.revokeObjectURL(a.href);
-    }
-  };
-
-  const saveAdapter = () => {
-    const yamlData = dump(adapterArray);
-    console.log(yamlData);
-    downloadToFile(yamlData, 'adapter.yml', 'text/plain');
-  };
-
-  const adapterId = 'adapter-'.concat(Date.now());
-
+  const { adapterArray, show, orchArray, setOrchArray } = props;
+  
   const submitAdapter = (adapterArray) => {
-    const adapterJson = JSON.stringify(adapterArray);
-    localStorage.setItem(adapterId, adapterJson);
-    /*Paso 5: Aqui estamos almacenando el adapterId en el estado llamado 'adapterIDList' usando el metodo enviado 
-    por el componente padre 'Main', la cual manejara los ID de los adaptadores que tendra la orquestacion*/
-    saveAdapterIDInList(adapterId);
-    console.log(localStorage);
+    const newOrchArray = [...orchArray, adapterArray[0]];
+    setOrchArray(newOrchArray);
   };
 
   const cancelOrchestration = () => {
     window.location.reload();
     localStorage.clear();
-  }
+  };
 
   const CancelOrSaveBtns = () => (
     <div className="row">
@@ -67,6 +31,8 @@ const Adapter = (props) => {
       </div>
     </div>
   );
+
+  console.log(orchArray);
 
   return (
     <Fragment>
