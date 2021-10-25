@@ -17,9 +17,11 @@ const Footer = () => {
               MDBootstrap.com
             </a>
           </div>
+         {/* <div className="p-3 mb-1 bg-dark bg-gradient d-flex"></div> */}
         </footer>
       </>
     );
+    // )
 };
 
 export default Footer;

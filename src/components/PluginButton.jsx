@@ -12,7 +12,7 @@ const PluginButton = (props) => {
   return (
     <>
       <div className="row">
-        <button type="button" className="btn btn-light adapters mt-3 " onClick={handleShowPluginForm}>
+        <button type="button" className="btn btn-light adapters mt-2 " onClick={handleShowPluginForm}>
           {name}
         </button>
       </div>

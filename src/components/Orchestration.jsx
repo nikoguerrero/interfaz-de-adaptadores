@@ -46,7 +46,7 @@ const Orchestration = () => {
       </div>
       <div className="row justify-content-center">
         <div className="d-grid  col-sm-7  ">
-          <button className="btn btn-new-pluging text-white"> Export </button>
+          <button className="btn btn-primary font-weight-bold"> Export </button>
         </div>
       </div>
     

@@ -7,11 +7,5 @@
     constants:
       laborafax.UUID : "%GUUID%"
     fields:
-    - mapping: laborafax.firstName
-      length: 20
-    - mapping: laborafax.lastName
-      length: 20
-    - mapping: laborafax.address
-      length: 50
-    - mapping: laborafax.phone
-      length: 10
+    - mapping: ""
+      length: 0
