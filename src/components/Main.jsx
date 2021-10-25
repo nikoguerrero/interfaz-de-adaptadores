@@ -40,7 +40,7 @@ const Main = ({initialOrchArray}) => {
           <div className="col-3 vh-100  bg-secondary bg-opacity-10   overflow-auto">
             <Plugins showPluginForm={showPluginForm} setShow={setShow} />
           </div>
-          <div className="col-6 vh-100 overflow-auto ">
+          <div className="col-6 vh-100 overflow-auto" style={{ 'padding-left': '5%' }}>
             <Adapter adapterArray={adapterArray} show={show} orchArray={orchArray} setOrchArray={setOrchArray}/>
           </div>
           <div className="col-3 vh-100 bg-secondary bg-opacity-25">
