@@ -1,6 +1,6 @@
- - id: output-handler
-   dependencies: evaluate-conditions
-   stepName: Generate Client Output
+ - id: ""
+   dependencies: ""
+   stepName: ""
    mainClass: com.company.namespace.outputHandler
    config:
      recordClass: ""

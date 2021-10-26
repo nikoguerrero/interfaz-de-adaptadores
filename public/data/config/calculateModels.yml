@@ -1,6 +1,6 @@
- - id: calculate-models
-   dependencies: filter-clients
-   stepName: Calculate Client Models
+ - id: ""
+   dependencies: ""
+   stepName: ""
    mainClass: com.company.namespace.CalculateModels
    config:
      recordClass: ""
@@ -14,5 +14,3 @@
            model: ""
            criteria: ""
            predictionType: ""
-
-

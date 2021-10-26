@@ -12,13 +12,11 @@ const Modal = ({setAlert}) => {
           <div className="modal-container">
             <div className="modal-content">
               <div className="body">
-                <span className="h4 text-center">
-                La ID del plugin debe ser única
-                </span>
+                <div className="h6 text-center mt-2">
+                Plugin's ID should be unique
+                </div>
               </div>
-              <div className="footer">
-                  <button className="btn btn-primary mt-5  float-end" onClick={ handleClick }> Ok </button>
-              </div>
+                <button className="btn btn-primary mt-4 float-end" onClick={ handleClick }> OK </button>
             </div>
           </div>
         </div>
