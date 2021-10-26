@@ -14,6 +14,12 @@ const Main = ({ initialOrchArray }) => {
   const [orchArray, setOrchArray] = useState(initialOrchArray);
   const [alert, setAlert] = useState(false);
 
+  // Aqui definiremos el arreglo que va a manejar todas los ID que se seran usados como dependencias en los otros adaptadores
+  // Si el usuario lo requiere, en caso contrario puede elegir tamgien el valor por defecto 'input'
+  const [dependeciesList, setDependenciesList] = useState([
+    { value: '0', label: 'input' },
+  ])
+
   useEffect(() => {
     // const adapterId = 'adapter-'.concat(Date.now());
     const orchJson = JSON.stringify(orchArray);
@@ -70,8 +76,9 @@ const Main = ({ initialOrchArray }) => {
               orchArray={orchArray}
               setOrchArray={setOrchArray}
               setAlert={setAlert}
+              dependeciesList={dependeciesList}
+              setDependenciesList={setDependenciesList
             />
-
           </div>
           {alert ? <AlertMessage /> : null}
           <div className="col-3 vh-100 bg-secondary bg-opacity-25">

@@ -5,7 +5,19 @@ import Dependencies from './Dependencies';
 import './style.css';
 
 const Adapter = (props) => {
-  const { adapterArray, setAdapterArray, show, orchArray, setOrchArray, setAlert } = props;
+
+
+  const saveAdapter = (adapterArray) => {
+    const newOrchArray = [...orchArray, adapterArray[0]];
+    setOrchArray(newOrchArray);
+
+    const lengthDependencies = dependeciesList.length;
+
+    setDependenciesList((prevDependeciesList) => {
+      return [...prevDependeciesList, { value: String(lengthDependencies + 1), label: adapterArray[0].id }]
+    });
+
+  const { adapterArray, setAdapterArray, show, orchArray, setOrchArray, setAlert, dependeciesList, setDependenciesList } = props;
   
   const submitAdapter = (adapterArray) => {
     const adapterId = adapterArray[0].id;
@@ -34,7 +46,7 @@ const Adapter = (props) => {
         </button>
         <button
           type="button"
-          className="btn my-primary float-end me-3" onClick={cancelOrchestration}>
+          className="btn my-primary float-end me-3">
           Cancel
         </button>
       </div>
@@ -52,25 +64,25 @@ const Adapter = (props) => {
           <div className="row g-2">
             <div className="col-sm-5">
               <div className="form-floating mb-3 ">
-                <input type="text" className="form-control" defaultValue={item.id} onChange={(e) => changePropertyValue(item, 'id', e.target.value)}/>
+                <input type="text" className="form-control" defaultValue={item.id} onChange={(e) => changePropertyValue(item, 'id', e.target.value)} />
                 <label>ID</label>
               </div>
             </div>
             <div className="col-sm-5">
               <div className="form-floating mb-3">
                 {/* <input type="text" className="form-control" defaultValue={item.dependencies} onChange={(e) => changePropertyValue(item, 'dependencies', e.target.value)}/> */}
-                <Dependencies value={item.dependencies}/>
+                <Dependencies dependeciesList={dependeciesList} />
               </div>
             </div>
             <div className="col-sm-5">
               <div className="form-floating mb-3">
-                <input type="text" className="form-control" defaultValue={item.stepName} onChange={(e) => changePropertyValue(item, 'stepName', e.target.value)}/>
+                <input type="text" className="form-control" defaultValue={item.stepName} onChange={(e) => changePropertyValue(item, 'stepName', e.target.value)} />
                 <label>StepName</label>
               </div>
             </div>
             <div className="col-sm-5">
               <div className="form-floating mb-3">
-                <input type="text" className="form-control" readOnly value={item.mainClass} onChange={(e) => changePropertyValue(item, 'mainClass', e.target.value)}/>
+                <input type="text" className="form-control" readOnly value={item.mainClass} onChange={(e) => changePropertyValue(item, 'mainClass', e.target.value)} />
                 <label>MainClass</label>
               </div>
             </div>
@@ -80,7 +92,7 @@ const Adapter = (props) => {
             key={item.id}
             config={item.config}
           />
-          </div>
+        </div>
       ))}
       {show ? <CancelOrSaveBtns /> : null}
     </Fragment>
