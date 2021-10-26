@@ -14,7 +14,7 @@ const Adapter = (props) => {
     const lengthDependencies = dependeciesList.length;
 
     setDependenciesList((prevDependeciesList) => {
-      return [...prevDependeciesList, { value: String(lengthDependencies + 1), label: adapterArray[0].id }]
+      return [...prevDependeciesList, { value: String(lengthDependencies), label: adapterArray[0].id }]
     });
   };
 
