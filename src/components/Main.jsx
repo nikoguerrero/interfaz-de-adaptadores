@@ -23,7 +23,6 @@ const Main = ({ initialOrchArray }) => {
   ])
 
   useEffect(() => {
-    // const adapterId = 'adapter-'.concat(Date.now());
     const orchJson = JSON.stringify(orchArray);
     localStorage.setItem('orchestration', orchJson);
   }, [orchArray]);
@@ -37,29 +36,6 @@ const Main = ({ initialOrchArray }) => {
       }).catch((err) => console.log('failed to load yaml file', err));
   };
 
-  //modal se está agregando al div, pero no se ve.
-  // const AlertMessage = () => (
-  //   <div class="modal" tabindex="-1" role="dialog">
-  //     <div class="modal-dialog" role="document">
-  //       <div class="modal-content">
-  //         <div class="modal-header">
-  //           <h5 class="modal-title">Modal title</h5>
-  //           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-  //             <span aria-hidden="true">&times;</span>
-  //           </button>
-  //         </div>
-  //         <div class="modal-body">
-  //           <p>Modal body text goes here.</p>
-  //         </div>
-  //         <div class="modal-footer">
-  //           <button type="button" class="btn btn-primary">Save changes</button>
-  //           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   </div>
-  // );
-
   return (
     <div>
       <div className="container-fluid vh-100 ">
@@ -67,9 +43,9 @@ const Main = ({ initialOrchArray }) => {
           <Header />
         </div>
         <div className="row">
-          <div className="col-3 vh-100  bg-secondary bg-opacity-10 ackground-plugins">
-            <Plugins 
-              showPluginForm={showPluginForm} 
+          <div className="col-3 vh-100  bg-secondary bg-opacity-10 background-plugins">
+            <Plugins
+              showPluginForm={showPluginForm}
               setShowOrch={setShowOrch}
               setShowBtn={setShowBtn}
             />
@@ -84,13 +60,18 @@ const Main = ({ initialOrchArray }) => {
               setAlert={setAlert}
               dependeciesList={dependeciesList}
               setDependenciesList={setDependenciesList}
-              showBtn={showBtn} 
+              showBtn={showBtn}
               setShowBtn={setShowBtn}
             />
           </div>
           {alert ? <Modal setAlert={setAlert}/> : null}
-          <div className="col-3 vh-100 bg-secondary bg-opacity-10">
-            {showOrch ? <Orchestration orchArray={orchArray} setOrchArray={setOrchArray} /> : null}
+          <div className="col-3 vh-100 bg-secondary bg-opacity-25">
+            {showOrch ?
+              <Orchestration
+                orchArray={orchArray}
+                setOrchArray={setOrchArray}
+              />
+              : null}
           </div>
         </div>
         <div className="row bg-dark bg-gradient">
