@@ -5,16 +5,16 @@ import Dependencies from './Dependencies';
 import './style.css'
 
 const Adapter = (props) => {
-  const { adapterArray, show, orchArray, setOrchArray } = props;
+  const { adapterArray, setShowBtn, showBtn, orchArray, setOrchArray, setAdapterArray } = props;
   
   const submitAdapter = (adapterArray) => {
     const newOrchArray = [...orchArray, adapterArray[0]];
     setOrchArray(newOrchArray);
   };
 
-  const cancelOrchestration = () => {
-    window.location.reload();
-    localStorage.clear();
+  const cancelAdapter = () => {
+    setAdapterArray([]);
+    setShowBtn(false);
   };
 
   const CancelOrSaveBtns = () => (
@@ -25,7 +25,7 @@ const Adapter = (props) => {
         </button>
         <button
           type="button"
-          className="btn my-primary float-end me-3" onClick={cancelOrchestration}>
+          className="btn my-primary float-end me-3" onClick={cancelAdapter}>
           Cancel
         </button>
       </div>
@@ -73,7 +73,7 @@ const Adapter = (props) => {
           />
           </div>
       ))}
-      {show ? <CancelOrSaveBtns /> : null}
+      {showBtn ? <CancelOrSaveBtns /> : null}
     </Fragment>
   )
 };
