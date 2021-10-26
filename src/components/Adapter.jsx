@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import AdapterConfig from './AdapterConfig';
-import changePropertyValue from '../helpers/helper.js';
+import { changePropertyValue } from '../helpers/helper.js';
 import Dependencies from './Dependencies';
 import './style.css';
 

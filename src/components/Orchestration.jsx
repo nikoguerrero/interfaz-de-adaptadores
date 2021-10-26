@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 import { dump } from 'js-yaml';
-import './style.css'
+import './style.css';
 
 const Orchestration = ({ orchArray, setOrchArray }) => {
   const downloadToFile = async (data, filename, contentType) => {
@@ -47,9 +47,9 @@ const Orchestration = ({ orchArray, setOrchArray }) => {
             <div className="d-grid  col-sm-7   ">
               {
                 orchArray.map((adapter, index) => (
-                  <Fragment>
-                    <button type="button" className="btn btn-secondary text-white  mt-3 " key={index}> {adapter.id}</button>
-                  </Fragment>
+                  <div key={index}>
+                    <button type="button" className="btn btn-secondary text-white  mt-3 "> {adapter.id}</button>
+                  </div>
                 ))
               }
             </div>
