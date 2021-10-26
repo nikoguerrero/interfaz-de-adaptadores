@@ -32,6 +32,11 @@ const Orchestration = ({ orchArray }) => {
     downloadToFile(yamlData, 'adapter.yaml', 'text/plain');
   };
 
+  const cancelOrchestration = () => {
+    window.location.reload();
+    localStorage.clear();
+  };
+
   return (
     <>
       <h2 className="h1 text-center mt-4">Orchestration</h2>
@@ -52,7 +57,7 @@ const Orchestration = ({ orchArray }) => {
       </div>
       <div className="row justify-content-center mt-5">
       <div className="d-grid  col-sm-5  ">
-          <button className="btn  font-weight-bold btn-exit text-white "> Exit </button>
+          <button className="btn  font-weight-bold btn-exit text-white " onClick={cancelOrchestration}> Exit </button>
         </div>
         <div className="d-grid  col-sm-5  ">
           <button

@@ -6,12 +6,18 @@ import Footer from './Footer';
 import { load } from 'js-yaml';
 import Adapter from './Adapter';
 
-const Main = ({initialOrchArray}) => {
+const Main = ({ initialOrchArray }) => {
   const [adapterArray, setAdapterArray] = useState([]);
   const [show, setShow] = useState(false);
 
   //este es el array de la orquestra, donde se van empujando los objetos que correpsponden a las configuraciones de los adaptadores
   const [orchArray, setOrchArray] = useState(initialOrchArray);
+
+  // Aqui definiremos el arreglo que va a manejar todas los ID que se seran usados como dependencias en los otros adaptadores
+  // Si el usuario lo requiere, en caso contrario puede elegir tamgien el valor por defecto 'input'
+  const [dependeciesList, setDependenciesList] = useState([
+    { value: '0', label: 'input' },
+  ])
 
   useEffect(() => {
     // const adapterId = 'adapter-'.concat(Date.now());
@@ -33,18 +39,18 @@ const Main = ({initialOrchArray}) => {
   return (
     <div>
       <div className="container-fluid vh-100 ">
-      <div className="row  bg-light">
-        <Header />
+        <div className="row  bg-light">
+          <Header />
         </div>
         <div className="row">
           <div className="col-3 vh-100  bg-secondary bg-opacity-10 ackground-plugins">
             <Plugins showPluginForm={showPluginForm} setShow={setShow} />
           </div>
           <div className="col-6 vh-100 overflow-auto " style={{ 'padding-left': '5%' }}>
-            <Adapter adapterArray={adapterArray} show={show} orchArray={orchArray} setOrchArray={setOrchArray} setAdapterArray={setAdapterArray}/>
+            <Adapter adapterArray={adapterArray} show={show} orchArray={orchArray} setOrchArray={setOrchArray} setAdapterArray={setAdapterArray} dependeciesList={dependeciesList} setDependenciesList={setDependenciesList} />
           </div>
           <div className="col-3 vh-100 bg-secondary bg-opacity-25">
-            {show ? <Orchestration orchArray={orchArray}/> : null}
+            {show ? <Orchestration orchArray={orchArray} /> : null}
           </div>
         </div>
         <div className="row bg-dark bg-gradient">
