@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import AdapterConfig from './AdapterConfig';
-import { changePropertyValue } from '../helpers/helper.js';
+import {  } from '../helpers/helper.js';
 import Dependencies from './Dependencies';
 import './style.css';
 
@@ -17,7 +17,6 @@ const Adapter = (props) => {
     setShowBtn,
   } = props;
   
-const [error, setError] = React.useState(null);
 
   const saveAdapter = (adapterArray) => {
     const adapterId = adapterArray[0].id;
@@ -37,12 +36,7 @@ const [error, setError] = React.useState(null);
 
     }
   };
-  // const validation = (orchArray) =>{
-  //   if(orchArray === ('')){
-  //     setError('Falta llenar un campo')
-  //   }
-  // }
-      
+
   const cancelAdapter = () => {
     setAdapterArray([]);
     setShowBtn(false);
@@ -63,8 +57,6 @@ const [error, setError] = React.useState(null);
     </div>
   );
 
-  // console.log(orchArray);
-
   return (
     <Fragment>
       {adapterArray && adapterArray.map((item) => (
@@ -74,7 +66,8 @@ const [error, setError] = React.useState(null);
           <div className="row g-2">
             <div className="col-sm-5">
               <div className="form-floating mb-3 ">
-                <input type="text" className="form-control" defaultValue={item.id} onChange={(e) => changePropertyValue(item, 'id', e.target.value)
+                <input type="text" className="form-control" defaultValue={item.id} onChange={(e) => (item, 'id', e.target.value)
+                
                 } />
                 <label>ID</label>
               </div>
@@ -86,13 +79,13 @@ const [error, setError] = React.useState(null);
             </div>
             <div className="col-sm-5">
               <div className="form-floating mb-3">
-                <input type="text" className="form-control" defaultValue={item.stepName} onChange={(e) => changePropertyValue(item, 'stepName', e.target.value)} />
+                <input type="text" className="form-control" defaultValue={item.stepName} onChange={(e) => (item, 'stepName', e.target.value)} />
                 <label>StepName</label>
               </div>
             </div>
             <div className="col-sm-5">
               <div className="form-floating mb-3">
-                <input type="text" className="form-control" readOnly value={item.mainClass} onChange={(e) => changePropertyValue(item, 'mainClass', e.target.value)} />
+                <input type="text" className="form-control" readOnly value={item.mainClass} onChange={(e) => (item, 'mainClass', e.target.value)} />
                 <label>MainClass</label>
               </div>
             </div>
@@ -105,7 +98,6 @@ const [error, setError] = React.useState(null);
         </div>
       
       ))}
-      {error && <div className="alert alert-danger">{error}</div>}
       {showBtn ? <CancelOrSaveBtns /> : null}
     </Fragment>
   )
