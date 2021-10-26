@@ -5,8 +5,20 @@ import Dependencies from './Dependencies';
 import './style.css';
 
 const Adapter = (props) => {
-  const { adapterArray, setAdapterArray, orchArray, setOrchArray, setAlert, dependeciesList, setDependenciesList, showBtn, setShowBtn } = props;
+  const {
+    adapterArray,
+    setAdapterArray,
+    orchArray,
+    setOrchArray,
+    setAlert,
+    dependeciesList,
+    setDependenciesList,
+    showBtn,
+    setShowBtn,
+  } = props;
   
+const [error, setError] = React.useState(null);
+
   const saveAdapter = (adapterArray) => {
     const adapterId = adapterArray[0].id;
     const adapter = orchArray.find((adapter) => adapter.id === adapterId);
@@ -19,11 +31,22 @@ const Adapter = (props) => {
       });
       setAdapterArray([]);
       //falta esconder los botones
-    } else {
+     
+    }else if(orchArray === ('')){
+        setError('lslssllslslslsls')
+      }
+        else {
       // alert('la ID del adaptador debe ser única');
       setAlert(true); 
+    
+
     }
   };
+  // const validation = (orchArray) =>{
+  //   if(orchArray === ('')){
+  //     setError('Falta llenar un campo')
+  //   }
+  // }
       
   const cancelAdapter = () => {
     setAdapterArray([]);
@@ -56,7 +79,8 @@ const Adapter = (props) => {
           <div className="row g-2">
             <div className="col-sm-5">
               <div className="form-floating mb-3 ">
-                <input type="text" className="form-control" defaultValue={item.id} onChange={(e) => changePropertyValue(item, 'id', e.target.value)} />
+                <input type="text" className="form-control" defaultValue={item.id} onChange={(e) => changePropertyValue(item, 'id', e.target.value)
+                } />
                 <label>ID</label>
               </div>
             </div>
@@ -84,7 +108,9 @@ const Adapter = (props) => {
             config={item.config}
           />
         </div>
+      
       ))}
+      {error && <div className="alert alert-danger">{error}</div>}
       {showBtn ? <CancelOrSaveBtns /> : null}
     </Fragment>
   )

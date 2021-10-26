@@ -12,6 +12,7 @@ const Main = ({ initialOrchArray }) => {
   const [showOrch, setShowOrch] = useState(false);
   const [showBtn, setShowBtn] = useState(false);
 
+
   //este es el array de la orquestra, donde se van empujando los objetos que corresponden a las configuraciones de los adaptadores
   const [orchArray, setOrchArray] = useState(initialOrchArray);
   const [alert, setAlert] = useState(false);
@@ -36,29 +37,6 @@ const Main = ({ initialOrchArray }) => {
         setAdapterArray(yamlJsonObject)
       }).catch((err) => console.log('failed to load yaml file', err));
   };
-
-  //modal se está agregando al div, pero no se ve.
-  // const AlertMessage = () => (
-  //   <div class="modal" tabindex="-1" role="dialog">
-  //     <div class="modal-dialog" role="document">
-  //       <div class="modal-content">
-  //         <div class="modal-header">
-  //           <h5 class="modal-title">Modal title</h5>
-  //           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-  //             <span aria-hidden="true">&times;</span>
-  //           </button>
-  //         </div>
-  //         <div class="modal-body">
-  //           <p>Modal body text goes here.</p>
-  //         </div>
-  //         <div class="modal-footer">
-  //           <button type="button" class="btn btn-primary">Save changes</button>
-  //           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   </div>
-  // );
 
   return (
     <div>
@@ -86,6 +64,7 @@ const Main = ({ initialOrchArray }) => {
               setDependenciesList={setDependenciesList}
               showBtn={showBtn} 
               setShowBtn={setShowBtn}
+              
             />
           </div>
           {alert ? <Modal setAlert={setAlert}/> : null}
