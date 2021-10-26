@@ -7,7 +7,7 @@ const PluginButton = (props) => {
 
   const handleShowPluginForm = () => {
     showPluginForm(configuration);
-    setShowOrch(true);
+    // setShowOrch(true);
     setShowBtn(true);
   };
 

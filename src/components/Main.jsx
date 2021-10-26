@@ -6,7 +6,7 @@ import Footer from './Footer';
 import { load } from 'js-yaml';
 import Adapter from './Adapter';
 
-const Main = ({ initialOrchArray }) => {
+const Main = ({ initialOrchArray, containsLocalOrch }) => {
   const [adapterArray, setAdapterArray] = useState([]);
   const [showOrch, setShowOrch] = useState(false);
   const [showBtn, setShowBtn] = useState(false);
@@ -22,7 +22,6 @@ const Main = ({ initialOrchArray }) => {
   ])
 
   useEffect(() => {
-    // const adapterId = 'adapter-'.concat(Date.now());
     const orchJson = JSON.stringify(orchArray);
     localStorage.setItem('orchestration', orchJson);
   }, [orchArray]);
@@ -36,27 +35,13 @@ const Main = ({ initialOrchArray }) => {
       }).catch((err) => console.log('failed to load yaml file', err));
   };
 
-  //modal se está agregando al div, pero no se ve.
-  const AlertMessage = () => (
-    <div className="modal" tabindex="-1" role="dialog">
-      <div className="modal-dialog" role="document">
-        <div className="modal-content">
-          <div className="modal-header">
-            <h5 className="modal-title">Modal title</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div className="modal-body">
-            <p>Modal body text goes here.</p>
-          </div>
-          <div className="modal-footer">
-            <button type="button" className="btn btn-primary">Save changes</button>
-            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
+  const handleCLick = () => {
+    containsLocalOrch = false;
+    setShowOrch(true);
+  }
+
+  const UnsavedOrchestration = () => (
+    <button onClick={handleCLick}>UNSAVED ORCHESTRATION</button>
   );
 
   return (
@@ -66,9 +51,9 @@ const Main = ({ initialOrchArray }) => {
           <Header />
         </div>
         <div className="row">
-          <div className="col-3 vh-100  bg-secondary bg-opacity-10 ackground-plugins">
-            <Plugins 
-              showPluginForm={showPluginForm} 
+          <div className="col-3 vh-100  bg-secondary bg-opacity-10 background-plugins">
+            <Plugins
+              showPluginForm={showPluginForm}
               setShowOrch={setShowOrch}
               setShowBtn={setShowBtn}
             />
@@ -83,13 +68,19 @@ const Main = ({ initialOrchArray }) => {
               setAlert={setAlert}
               dependeciesList={dependeciesList}
               setDependenciesList={setDependenciesList}
-              showBtn={showBtn} 
+              showBtn={showBtn}
               setShowBtn={setShowBtn}
             />
           </div>
-          {alert ? <AlertMessage /> : null}
           <div className="col-3 vh-100 bg-secondary bg-opacity-25">
-            {showOrch ? <Orchestration orchArray={orchArray} setOrchArray={setOrchArray} /> : null}
+            {containsLocalOrch ? <UnsavedOrchestration /> : null}
+            {showOrch ?
+              <Orchestration
+                orchArray={orchArray}
+                setOrchArray={setOrchArray}
+                containsLocalOrch={containsLocalOrch}
+              />
+              : null}
           </div>
         </div>
         <div className="row bg-dark bg-gradient">

@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 import { dump } from 'js-yaml';
 import './style.css';
 
-const Orchestration = ({ orchArray, setOrchArray }) => {
+const Orchestration = ({ orchArray, setOrchArray, containsLocalOrch }) => {
   const downloadToFile = async (data, filename, contentType) => {
     const file = new Blob([data], { type: contentType });
 
@@ -37,6 +37,10 @@ const Orchestration = ({ orchArray, setOrchArray }) => {
     localStorage.clear();
     window.location.reload();
   };
+
+  const UnsavedOrchestration = () => (
+    <button>UNSAVED ORCHESTRATION</button>
+  );
 
   return (
     <>
