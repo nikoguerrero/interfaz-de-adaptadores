@@ -1,5 +1,5 @@
 import React from 'react';
-import Select from 'react-select';
+import Select  from 'react-select';
 
 const Dependecies = ({dependeciesList}) => {
   const options = dependeciesList;
@@ -12,7 +12,10 @@ const Dependecies = ({dependeciesList}) => {
   };
   return (
     <div>
-      <Select options={options} styles={style} />
+      <Select
+      placeholder={'Dependencies'} 
+      options={options} 
+      styles={style} />
     </div>
   )
 };

@@ -30,8 +30,7 @@ contiene parámetros y configuración definida por el usuario y sera exportada y
 
 # Prototipos
 
-Es un diseño minimalista, está dividido en tres secciones. La columna principal que contiene los Plugin, la columna del medio que contiene la información a configurar y la última que tiene la visualización de los Plugin creados y listos para exportar.
- 
+Es un diseño minimalista, está dividido en tres secciones. La columna principal que contiene los Plugin, la columna del medio que contiene la información a configurar y la última que tiene la visualización de los Plugin creados y listos para exportar. 
 Diseñado de esta manera ya que sigue un orden secuencial del proceso y es fácil de identificar los requerimientos del usuario para poder acceder de manera fácil a la información
 
 ![Prototipo](./src/assets/Desktop(2).png)
