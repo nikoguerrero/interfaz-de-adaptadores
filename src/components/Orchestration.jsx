@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 import { dump } from 'js-yaml';
 import './style.css';
 
-const Orchestration = ({ orchArray, setOrchArray }) => {
+const Orchestration = ({ orchArray, setOrchArray, LocalOrch }) => {
   const downloadToFile = async (data, filename, contentType) => {
     const file = new Blob([data], { type: contentType });
 

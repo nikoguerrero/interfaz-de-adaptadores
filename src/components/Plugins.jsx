@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import adapters from '../data/adapters';
 import PluginButton from './PluginButton';
 import SearchBar from './SearchBar';
@@ -12,8 +12,9 @@ const Plugins = (props) => {
   const showPlugins = () => {
     document.getElementById("adapters").style.display = "grid";
     setSearch(true);
+    setShowOrch(true);
   };
-  
+
   const handleSearch = (adapterText) => {
     let value = adapterText.toLowerCase();
     let filteredAdapters = [];
@@ -30,10 +31,10 @@ const Plugins = (props) => {
           <button className="btn btn-primary mt-3" onClick={showPlugins}>+ New</button>
         </div>
       </div>
-      
-        {search ? <SearchBar handleSearch={handleSearch} /> : null}
-      
-       <div id='adapters' className="row mt-3 " style={{ display: 'none' }}>
+
+      {search ? <SearchBar handleSearch={handleSearch} /> : null}
+
+      <div id='adapters' className="row mt-3 " style={{ display: 'none' }}>
         {filteredAdapters.map((item, index) => (
           <section key={index}>
             <div className="d-grid  col-8  mx-auto ">
@@ -42,7 +43,7 @@ const Plugins = (props) => {
           </section>
         ))}
       </div>
-     
+
     </>
   );
 };

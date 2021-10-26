@@ -12,33 +12,23 @@
  
 # Descripción
 
-Es una interfaz creada para usuarios IT, que necesitan poder visualizar y configurar de manera más rápida y agilizar el proceso de recuperación de datos.
+Es una interfaz creada para usuarios IT, que necesitan poder visualizar, configurar y agilizar el proceso de recuperación de datos, creando diferentes orquestaciones. 
  
-Utilizando los adaptadores que poseen diferentes parámetros de configuración, accediendo a ellos de manera dinámica y así visualizar ágilmente cada adaptador con su respectiva configuración a modificar, pudiendo agregar o eliminar ítems.
+Cada orquestación se realiza utilizando adaptadores que poseen diferentes parámetros de configuración, accediendo a ellos de manera dinámica y así es posible visualizar ágilmente cada adaptador con su respectiva configuración a modificar, pudiendo agregar o eliminar ítems.
  
-Creando una orquestación de procesos Batch   que se pueden exportar de manera local en formato yaml.
+Finalmente, la orquestación de procesos Batch se puede exportar de manera local en formato yaml, con lo que la configuración se borra de la interfaz para que puedas comenzar una nueva. 
 
+# Prototipo
 
-<!-- Su funcionamiento consiste en crear  orquestación de procesos Batch tiene distintas etapas o pasos. Cada uno de estos
-pasos, ejecuta un objeto conocido como “adaptador”. Al mismo tiempo, este adaptador es
-una clase Java que define la lógica de transformación de datos que se desee.
-Los adaptadores podrían requerir una cantidad diferente de parámetros. Estos parámetros
-ayudan a la configuración de transformación que se requiere y están definidos en formato
-YAML. Los parámetros pueden ser: Key-value, List, Map.
-El proceso declarado anteriormente entrega como resultado un archivo YAML, el cual
-contiene parámetros y configuración definida por el usuario y sera exportada y almacenada en su dispositivo local. -->
-
-# Prototipos
-
-Es un diseño minimalista, está dividido en tres secciones. La columna principal que contiene los Plugin, la columna del medio que contiene la información a configurar y la última que tiene la visualización de los Plugin creados y listos para exportar. 
-Diseñado de esta manera ya que sigue un orden secuencial del proceso y es fácil de identificar los requerimientos del usuario para poder acceder de manera fácil a la información
+Es un diseño minimalista dividido en tres secciones. La columna principal contiene los Plugin, que se mostrarán al interactuar con el botón "new", junto a una barra buscadora que filtra. Al elegir el primer adaptador, se despliega columna de en medio, la cual contiene los criterios a configurar. A través de los trash icons podemos eliminar criterios. En ésta columna tenemos dos botones: el de save, que permite guardar la configuración en caso de un cierre inesperado del navegador, y el botón de cancel, que borra la configuración actual para comenzar nuevamente.  Por último, la columna a la derecha contiene la visualización de los Plugin creados, guardados y listos para exportar, junto a un botón de exit que borra la orquestación completa. 
+El diseño de la interfaz está hecho de manera que siga un orden secuencial del proceso y sea fácil de identificar los requerimientos del usuario para poder acceder a la información.
 
 ![Prototipo](./src/assets/Desktop(2).png)
 # Interfaz
 
 # Historia de Usuario
  
-## 1. Los empleados TI puedan visualizar los Plugins y configurarlos
+## 1. Como usuario TI puedo visualizar los Plugins y configurarlos
    
     CRITERIOS DE ACEPTACIÓN
 
@@ -76,6 +66,48 @@ Diseñado de esta manera ya que sigue un orden secuencial del proceso y es fáci
     -Se puede cancelar toda la orquestacion a atraves de un boton de salir. 
 
 # Modo de Usuario 
+
+
+### Para crear una nueva configuración: 
+
+- El botón "+New" te mostrará los adaptadores disponibles. 
+
+- La barra de búsqueda te permitirá identificar si necesitas un adaptador en particular. 
+
+- Al elegir un adaptador podrás ver en la columna central su configuración con sus campos predeterminados y los que puedes modificar fácilmente en cada input. 
+
+- En caso de que quieras eliminar alguno, sólo debes clickear el trash can correspondiente. 
+
+- Recuerda que cada ID debe ser único.
+
+
+### Para guardar una configuración: 
+
+- Utiliza el botón "save" al pie de la columna central.
+
+- Si no guardas y se cierra accidentalmente la configuración, perderás el trabajo realizado. 
+
+### Para recuperar una configuración si se cierra accidentalmente el navegador. 
+
+- 
+
+### Para borrar una configuración: 
+
+- Utiliza el botón "Cancel" al pie de la columna central. 
+
+### Para borrar una orquestación completa
+
+- Utiliza el botón rojo "Delete" al pie de la  columna derecha. 
+
+- Recuerda que si borras la orquestación completa usando el botón "Delete", ya no podrás recuperarla aunque hayas guardado una configuración con "Save". 
+
+### Para descargar mi orquestación en formato yaml: 
+
+- Utiliza el botón "Export" al pie de la columna derecha. 
+
+- Recuerda que las opciones de guardado presentan diferentes opciones según el navegador que utilices. 
+
+
 
 # Tecnologias  
 - Javascript

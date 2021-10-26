@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { changePropertyValue, getUniqueId } from '../helpers/helper.js';
+import { changePropertyValue, getUniqueId, changeKey } from '../helpers/helper.js';
 
 const firstToUpper = (str) => {
   return str[0].toUpperCase() + str.substr(1);
@@ -7,12 +7,12 @@ const firstToUpper = (str) => {
 
 const AdapterPropertyList = ({ array, triggerRender, propertyList }) => {
   const keys = Object.keys(propertyList);
-  const propertyIndex =  array ? array.indexOf(propertyList) : -1;
+  const propertyIndex = array ? array.indexOf(propertyList) : -1;
   const removeElement = (index, array) => {
-      if (index >= 0 && array.length > 1) {
-        array.splice(index, 1);
-        triggerRender();
-      }
+    if (index >= 0 && array.length > 1) {
+      array.splice(index, 1);
+      triggerRender();
+    }
   };
 
   return (
@@ -30,7 +30,7 @@ const AdapterPropertyList = ({ array, triggerRender, propertyList }) => {
             <AdapterPropertyList propertyList={propertyList[key]} />
           </div>
       )}
-      {array && array.length > 1 ? 
+      {array && array.length > 1 ?
         (<div className="col-sm-1">
           <button className="btn btn-ligth" onClick={(e) => removeElement(propertyIndex, array)}>
             <svg
@@ -48,18 +48,18 @@ const AdapterPropertyList = ({ array, triggerRender, propertyList }) => {
               />
             </svg>
           </button>
-        </div>) : null 
+        </div>) : null
       }
     </div>
   )
 };
 
 const AdapterProperty = (props) => {
-  const { object, objectKey, objectValue, triggerRender } = props;
+  let { object, objectKey, objectValue, triggerRender, createdFromMap } = props;
   const isArray = Array.isArray(object);
-  const prefix = isArray ? '' : firstToUpper(objectKey) + ':';
 
   if (Array.isArray(objectValue)) {
+    const prefix = isArray ? '' : firstToUpper(objectKey) + ':';
     return (
       <Fragment>
         <h5 className="my-primary">{prefix}</h5>
@@ -73,25 +73,57 @@ const AdapterProperty = (props) => {
       </Fragment>
     );
   } else if (typeof objectValue === 'object') {
+    const prefix = isArray ? '' : firstToUpper(objectKey) + ':';
     return <div>
-      <h5 className="my-primary fw-bold">{prefix}</h5>
-      <AdapterConfigWrapper key={objectKey} config={objectValue} triggerRender={triggerRender}/>
+      <h5 className="my-primary">{prefix}</h5>
+      <AdapterConfigWrapper
+        key={objectKey}
+        config={objectValue}
+        triggerRender={triggerRender}
+        createdFromMap={true}
+      />
+      <AddBtnMap objectValue={objectValue} triggerRender={triggerRender} />
     </div>
   } else {
-    return (
-      <div className="row g-2">
-        <div className="col-sm-5">
-          <div className="form-floating mb-3">
-            <input type="text" className="form-control" onChange={(e) => changePropertyValue(object, objectKey, e.target.value)} />
-            <label>{firstToUpper(objectKey)}</label>
+    if (createdFromMap) {
+      return (
+        <div className="row g-2">
+          <div className="col-sm-5">
+            <div className="form-floating mb-3">
+              <input
+                type="text"
+                className="form-control"
+                defaultValue={objectKey}
+                onChange={(e) => { objectKey = changeKey(object, objectKey, e.target.value)} } />
+            </div>
+          </div>
+          <div className="col-sm-5">
+            <div className="form-floating mb-3">
+              <input
+                type="text"
+                className="form-control"
+                defaultValue={objectValue}
+                onChange={(e) => changePropertyValue(object, objectKey, e.target.value)} />
+            </div>
           </div>
         </div>
-      </div>
-    )
+      )
+    } else {
+      return (
+        <div className="row g-2">
+          <div className="col-sm-5">
+            <div className="form-floating mb-3">
+              <input type="text" className="form-control" onChange={(e) => changePropertyValue(object, objectKey, e.target.value)} />
+              <label>{firstToUpper(objectKey)}</label>
+            </div>
+          </div>
+        </div>
+      )
+    }
   }
 };
 
-const AdapterConfigWrapper = ({ config, triggerRender }) => {
+const AdapterConfigWrapper = ({ config, triggerRender, createdFromMap }) => {
   const configArray = Object.keys(config);
   return (
     <div className="">
@@ -102,6 +134,7 @@ const AdapterConfigWrapper = ({ config, triggerRender }) => {
           objectKey={element}
           objectValue={config[element]}
           triggerRender={triggerRender}
+          createdFromMap={createdFromMap}
         />
       )}
     </div>
@@ -117,7 +150,7 @@ const addToList = (arrayValue, triggerRender) => {
 
 const AddBtnArray = ({ arrayValue, triggerRender }) => (
   <div className="col-sm-1">
-    {/* botón de agregar elementos a map o listas */}
+    {/* botón de agregar elementos a listas */}
     <button className="btn btn-ligth" onClick={() => addToList(arrayValue, triggerRender)}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -133,9 +166,33 @@ const AddBtnArray = ({ arrayValue, triggerRender }) => (
   </div>
 );
 
+const addToMap = (objectValue, triggerRender) => {
+  // objectValue[getUniqueId(objectValue)] = '';
+  objectValue['Key_' + Date.now() ] = '';
+  triggerRender();
+};
+
+const AddBtnMap = ({ objectValue, triggerRender }) => (
+  <div className="col-sm-1">
+    <button className="btn btn-ligth" onClick={() => addToMap(objectValue, triggerRender)}>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="40"
+        fill="currentColor "
+        className="bi bi-plus-circle-fill  my-primary "
+        viewBox="0 0 16 16"
+      >
+        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+      </svg>
+    </button>
+  </div>
+);
+
+
 const AdapterConfig = ({ config }) => {
   const [forceRender, setForceRender] = useState(0);
-  const triggerRender = () => setForceRender(forceRender+1);
+  const triggerRender = () => setForceRender(forceRender + 1);
   return (
     <Fragment>
       <AdapterConfigWrapper

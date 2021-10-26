@@ -3,16 +3,14 @@
    stepName: Evaluate Client Models
    mainClass: com.company.namespace.EvaluateConditions
    config:
-     recordClass: com.company.data.client.laborafax
+     recordClass: ""
      evaluations:
-       - evalId: model
-         field: laborafax.calculated.predictedScore
-         threshold: 600
-       - evalId: risk
-         field: laborafax.calculated.predictedRisk
-         threshold: 0.8
-       - evalId: decision
-         source:
-           - model
-           - risk
-         field: laborafax.calculated.outputDecision
+       - evalId: ""
+         field: ""
+         threshold: 0
+       - evalId: ""
+         field: ""
+         threshold: 0
+       - evalId: ""
+         field: ""
+         threshold: 0
