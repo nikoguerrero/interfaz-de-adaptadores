@@ -5,7 +5,7 @@
    config:
     recordClass: com.company.data.client.laborafax
     constants:
-      laborafax.UUID : "%GUUID%"
+      laborafax.UUID : ""
     fields:
     - mapping: ""
       length: 0

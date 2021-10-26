@@ -5,7 +5,15 @@ import Dependencies from './Dependencies';
 import './style.css';
 
 const Adapter = (props) => {
-  const { adapterArray, setAdapterArray, orchArray, setOrchArray, setAlert, dependeciesList, setDependenciesList, showBtn, setShowBtn } = props;
+  const { adapterArray,
+    setAdapterArray,
+    orchArray,
+    setOrchArray,
+    setAlert,
+    dependeciesList,
+    setDependenciesList,
+    showBtn,
+    setShowBtn } = props;
   
   const saveAdapter = (adapterArray) => {
     const adapterId = adapterArray[0].id;
@@ -15,7 +23,7 @@ const Adapter = (props) => {
       const newOrchArray = [...orchArray, adapterArray[0]];
       setOrchArray(newOrchArray);
       setDependenciesList((prevDependeciesList) => {
-        return [...prevDependeciesList, { value: String(lengthDependencies + 1), label: adapterArray[0].id }]
+        return [...prevDependeciesList, { value: String(lengthDependencies), label: adapterArray[0].id }]
       });
       setAdapterArray([]);
       setShowBtn(false);
