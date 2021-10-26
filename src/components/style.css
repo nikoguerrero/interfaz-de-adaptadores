@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap');
+
 body{
     font-family: 'Open Sans', sans-serif !important;
 }
@@ -17,7 +18,6 @@ body{
     background: linear-gradient(to left, #00b4db, #0083b0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-
 .container-orchestration{
     height: 70%;
 }
@@ -31,12 +31,14 @@ body{
     color: #007298 !important;
     border-color: #007298 !important;
 }
+
 .btn-exit{
     background: #a53c3cfa;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to top, #a53c3cfa, #a53c3cfa);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to top, #a53c3cfa, #a53c3cfa); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
+
 .modalBackground {
     position: fixed;
     z-index: 999;
@@ -48,22 +50,23 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .modal-container{
-    width: 30%;
-    height: 30%;
+}
+
+.modal-container{
+    /* width: 30%; */
+    height: 50%;
     border-radius: 0.5rem;
     background-color: rgb(242, 242, 242);
     display: flex;
     flex-direction: column;
     /* padding: rem; */
     border: none;
-  }
-  .modal-content {
+}
+
+.modal-content {
     padding: 1rem;
     width: 50%;
     display: flex;
     justify-content: center;
-  }
+}
 

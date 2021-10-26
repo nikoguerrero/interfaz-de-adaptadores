@@ -1,6 +1,6 @@
- - id: filter-client
-   dependencies: data-enricher
-   stepName: filter clients with bad data
+ - id: ""
+   dependencies: ""
+   stepName: ""
    mainClass: com.company.namespace.FilterClients
    config:
      recordClass: ""

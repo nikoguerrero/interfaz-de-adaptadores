@@ -14,7 +14,7 @@ const Adapter = (props) => {
     setDependenciesList,
     showBtn,
     setShowBtn } = props;
-  
+
   const saveAdapter = (adapterArray) => {
     const adapterId = adapterArray[0].id;
     const adapter = orchArray.find((adapter) => adapter.id === adapterId);
@@ -28,10 +28,10 @@ const Adapter = (props) => {
       setAdapterArray([]);
       setShowBtn(false);
     } else {
-      setAlert(true); 
+      setAlert(true);
     }
   };
-      
+
   const cancelAdapter = () => {
     setAdapterArray([]);
     setShowBtn(false);
@@ -40,7 +40,7 @@ const Adapter = (props) => {
   const CancelOrSaveBtns = () => (
     <div className="row">
       <div className="float-end">
-        <button type="button" className="btn btn-primary float-end" onClick={() => saveAdapter(adapterArray)}>
+        <button type="button" className="btn btn-primary float-end me-3" onClick={() => saveAdapter(adapterArray)}>
           Save
         </button>
         <button
@@ -51,8 +51,6 @@ const Adapter = (props) => {
       </div>
     </div>
   );
-
-  // console.log(orchArray);
 
   return (
     <Fragment>

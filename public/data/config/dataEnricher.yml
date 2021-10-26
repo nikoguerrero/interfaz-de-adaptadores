@@ -1,11 +1,11 @@
- - id: data-enricher
-   dependencies: key-finder
-   stepName: Data parser step
+ - id: ""
+   dependencies: ""
+   stepName: ""
    mainClass: com.company.namespace.DataEnricher
    config:
-    recordClass: com.company.data.client.laborafax
+    recordClass: ""
     datasources:
-      - name: debt
-        location: /server/datasources/debt/
-      - name: vehicles
-        location: /server/datasources/vehicles/  
+      - name: ""
+        location: ""
+      - name: ""
+        location: ""

@@ -1,6 +1,6 @@
- - id: key-finder
-   dependencies: input-handler
-   stepName: Data parser step
+ - id: ""
+   dependencies: ""
+   stepName: ""
    mainClass: com.company.namespace.KeyFinder
    config:
     recordClass: ""
