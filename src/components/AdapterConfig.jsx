@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react';
-import changePropertyValue from '../helpers/helper.js';
+import { changePropertyValue, getUniqueId } from '../helpers/helper.js';
+
 const firstToUpper = (str) => {
   return str[0].toUpperCase() + str.substr(1);
 };
@@ -62,8 +63,8 @@ const AdapterProperty = (props) => {
     return (
       <Fragment>
         <h5 className="my-primary">{prefix}</h5>
-        {objectValue.map((item, index) =>
-          <AdapterPropertyList array={objectValue} triggerRender={triggerRender} key={index} propertyList={item} />
+        {objectValue.map((item) =>
+          <AdapterPropertyList array={objectValue} triggerRender={triggerRender} key={getUniqueId(item)} propertyList={item} />
         )}
         <AddBtnArray
           arrayValue={objectValue}

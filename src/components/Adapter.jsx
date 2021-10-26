@@ -1,17 +1,30 @@
 import React, { Fragment } from 'react';
 import AdapterConfig from './AdapterConfig';
-import changePropertyValue from '../helpers/helper.js';
+import { changePropertyValue } from '../helpers/helper.js';
 import Dependencies from './Dependencies';
-import './style.css'
+import './style.css';
 
 const Adapter = (props) => {
-  const { adapterArray, setShowBtn, showBtn, orchArray, setOrchArray, setAdapterArray } = props;
+  const { adapterArray, setAdapterArray, show, orchArray, setOrchArray, setAlert, dependeciesList, setDependenciesList, showBtn, setShowBtn } = props;
   
-  const submitAdapter = (adapterArray) => {
-    const newOrchArray = [...orchArray, adapterArray[0]];
-    setOrchArray(newOrchArray);
+  const saveAdapter = (adapterArray) => {
+    const adapterId = adapterArray[0].id;
+    const adapter = orchArray.find((adapter) => adapter.id === adapterId);
+    const lengthDependencies = dependeciesList.length;
+    if (!adapter) {
+      const newOrchArray = [...orchArray, adapterArray[0]];
+      setOrchArray(newOrchArray);
+      setDependenciesList((prevDependeciesList) => {
+        return [...prevDependeciesList, { value: String(lengthDependencies + 1), label: adapterArray[0].id }]
+      });
+      setAdapterArray([]);
+      //falta esconder los botones
+    } else {
+      alert('la ID del adaptador debe ser única');
+      setAlert(true); 
+    }
   };
-
+      
   const cancelAdapter = () => {
     setAdapterArray([]);
     setShowBtn(false);
@@ -20,7 +33,7 @@ const Adapter = (props) => {
   const CancelOrSaveBtns = () => (
     <div className="row">
       <div className="float-end">
-        <button type="button" className="btn btn-primary float-end" onClick={() => submitAdapter(adapterArray)}>
+        <button type="button" className="btn btn-primary float-end" onClick={() => saveAdapter(adapterArray)}>
           Save
         </button>
         <button
@@ -32,7 +45,7 @@ const Adapter = (props) => {
     </div>
   );
 
-  console.log(orchArray);
+  // console.log(orchArray);
 
   return (
     <Fragment>
@@ -43,25 +56,25 @@ const Adapter = (props) => {
           <div className="row g-2">
             <div className="col-sm-5">
               <div className="form-floating mb-3 ">
-                <input type="text" className="form-control" defaultValue={item.id} onChange={(e) => changePropertyValue(item, 'id', e.target.value)}/>
+                <input type="text" className="form-control" defaultValue={item.id} onChange={(e) => changePropertyValue(item, 'id', e.target.value)} />
                 <label>ID</label>
               </div>
             </div>
             <div className="col-sm-5">
               <div className="form-floating mb-3">
                 {/* <input type="text" className="form-control" defaultValue={item.dependencies} onChange={(e) => changePropertyValue(item, 'dependencies', e.target.value)}/> */}
-                <Dependencies value={item.dependencies}/>
+                <Dependencies dependeciesList={dependeciesList} />
               </div>
             </div>
             <div className="col-sm-5">
               <div className="form-floating mb-3">
-                <input type="text" className="form-control" defaultValue={item.stepName} onChange={(e) => changePropertyValue(item, 'stepName', e.target.value)}/>
+                <input type="text" className="form-control" defaultValue={item.stepName} onChange={(e) => changePropertyValue(item, 'stepName', e.target.value)} />
                 <label>StepName</label>
               </div>
             </div>
             <div className="col-sm-5">
               <div className="form-floating mb-3">
-                <input type="text" className="form-control" readOnly value={item.mainClass} onChange={(e) => changePropertyValue(item, 'mainClass', e.target.value)}/>
+                <input type="text" className="form-control" readOnly value={item.mainClass} onChange={(e) => changePropertyValue(item, 'mainClass', e.target.value)} />
                 <label>MainClass</label>
               </div>
             </div>
@@ -71,7 +84,7 @@ const Adapter = (props) => {
             key={item.id}
             config={item.config}
           />
-          </div>
+        </div>
       ))}
       {showBtn ? <CancelOrSaveBtns /> : null}
     </Fragment>
