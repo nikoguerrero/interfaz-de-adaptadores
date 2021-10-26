@@ -2,7 +2,7 @@ import React from 'react';
 
 const SearchBar = ({ handleSearch }) => (
   <div className="row mt-5">
-    <div className="d-grid  col-8  mx-auto ">
+    <div className="d-grid  col-9  mx-auto ">
       <div className="input-group rounded">
         <span className="input-group-text border-0" id="search-addon">
           <svg
