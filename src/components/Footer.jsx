@@ -1,10 +1,7 @@
 import React from 'react';
 
 const Footer = () => {
-
-    const style = {
-        backgroundColor: '#727272'
-    }
+  
     return (
       <>
         <footer className=" bg-dark bg-gradient text-center text-lg-start text-white  ">
