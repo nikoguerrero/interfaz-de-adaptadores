@@ -8,8 +8,8 @@ const Dependecies = ({dependeciesList}) => {
       ...base,
       padding: '10px '
     }),
-
   };
+  
   return (
     <div>
       <Select
