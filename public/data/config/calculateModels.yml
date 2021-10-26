@@ -3,16 +3,16 @@
    stepName: Calculate Client Models
    mainClass: com.company.namespace.CalculateModels
    config:
-     recordClass: com.company.data.client.laborafax
+     recordClass: ""
      models:
        - predictScore:
-           model: scoreCredit
+           model: ""
            factor1: 0
-           factor2: 999
-           threshold: 0.4
+           factor2: 0
+           threshold: 0
        - predictFraud:
-           model: clientFraud
-           criteria: debtLevel
-           predictionType: personalInformation
+           model: ""
+           criteria: ""
+           predictionType: ""
 
 

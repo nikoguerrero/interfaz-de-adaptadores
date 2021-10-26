@@ -18,7 +18,7 @@ const Adapter = (props) => {
         return [...prevDependeciesList, { value: String(lengthDependencies + 1), label: adapterArray[0].id }]
       });
       setAdapterArray([]);
-      //falta esconder los botones
+      setShowBtn(true);
     } else {
       alert('la ID del adaptador debe ser única');
       setAlert(true); 
