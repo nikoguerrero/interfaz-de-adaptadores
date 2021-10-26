@@ -40,15 +40,23 @@ const Adapter = (props) => {
   };
 
   const CancelOrSaveBtns = () => (
-    <div className="row">
-      <div className="float-end">
-        <button type="button" className="btn btn-primary float-end me-3" onClick={() => saveAdapter(adapterArray)}>
-          Save
-        </button>
+    <div className="row justify-content-end">
+      <div className="d-grid  col-sm-3  ">
         <button
           type="button"
-          className="btn my-primary float-end me-3" onClick={cancelAdapter}>
+          className="btn my-primary float-end me-3"
+          onClick={cancelAdapter}
+        >
           Cancel
+        </button>
+      </div>
+      <div className="d-grid  col-sm-3  ">
+        <button
+          type="button"
+          className="btn btn-primary float-end"
+          onClick={() => saveAdapter(adapterArray)}
+        >
+          Save
         </button>
       </div>
     </div>
