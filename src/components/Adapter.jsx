@@ -6,6 +6,8 @@ import './style.css';
 
 const Adapter = (props) => {
 
+  const { adapterArray, setAdapterArray, show, orchArray, setOrchArray, setAlert, dependeciesList, setDependenciesList } = props;
+
 
   const saveAdapter = (adapterArray) => {
     const newOrchArray = [...orchArray, adapterArray[0]];
@@ -16,20 +18,29 @@ const Adapter = (props) => {
     setDependenciesList((prevDependeciesList) => {
       return [...prevDependeciesList, { value: String(lengthDependencies), label: adapterArray[0].id }]
     });
+  }
 
-  const { adapterArray, setAdapterArray, show, orchArray, setOrchArray, setAlert, dependeciesList, setDependenciesList } = props;
-  
+
+
   const submitAdapter = (adapterArray) => {
     const adapterId = adapterArray[0].id;
     const adapter = orchArray.find((adapter) => adapter.id === adapterId);
     if (!adapter) {
       const newOrchArray = [...orchArray, adapterArray[0]];
       setOrchArray(newOrchArray);
+
+      const lengthDependencies = dependeciesList.length;
+
+      setDependenciesList((prevDependeciesList) => {
+        return [...prevDependeciesList, { value: String(lengthDependencies), label: adapterArray[0].id }]
+      });
+
+
       setAdapterArray([]);
       //falta esconder los botones
     } else {
       alert('la ID del adaptador debe ser única');
-      setAlert(true); 
+      setAlert(true);
     }
   };
 
