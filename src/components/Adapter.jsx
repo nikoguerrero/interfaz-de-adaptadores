@@ -5,26 +5,18 @@ import Dependencies from './Dependencies';
 import './style.css';
 
 const Adapter = (props) => {
-
-
-  const saveAdapter = (adapterArray) => {
-    const newOrchArray = [...orchArray, adapterArray[0]];
-    setOrchArray(newOrchArray);
-
-    const lengthDependencies = dependeciesList.length;
-
-    setDependenciesList((prevDependeciesList) => {
-      return [...prevDependeciesList, { value: String(lengthDependencies + 1), label: adapterArray[0].id }]
-    });
-
   const { adapterArray, setAdapterArray, show, orchArray, setOrchArray, setAlert, dependeciesList, setDependenciesList } = props;
   
-  const submitAdapter = (adapterArray) => {
+  const saveAdapter = (adapterArray) => {
     const adapterId = adapterArray[0].id;
     const adapter = orchArray.find((adapter) => adapter.id === adapterId);
+    const lengthDependencies = dependeciesList.length;
     if (!adapter) {
       const newOrchArray = [...orchArray, adapterArray[0]];
       setOrchArray(newOrchArray);
+      setDependenciesList((prevDependeciesList) => {
+        return [...prevDependeciesList, { value: String(lengthDependencies + 1), label: adapterArray[0].id }]
+      });
       setAdapterArray([]);
       //falta esconder los botones
     } else {
@@ -33,15 +25,10 @@ const Adapter = (props) => {
     }
   };
 
-  const cancelOrchestration = () => {
-    window.location.reload();
-    localStorage.clear();
-  };
-
   const CancelOrSaveBtns = () => (
     <div className="row">
       <div className="float-end">
-        <button type="button" className="btn btn-primary float-end" onClick={() => submitAdapter(adapterArray)}>
+        <button type="button" className="btn btn-primary float-end" onClick={() => saveAdapter(adapterArray)}>
           Save
         </button>
         <button

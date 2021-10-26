@@ -77,7 +77,7 @@ const Main = ({ initialOrchArray }) => {
               setOrchArray={setOrchArray}
               setAlert={setAlert}
               dependeciesList={dependeciesList}
-              setDependenciesList={setDependenciesList
+              setDependenciesList={setDependenciesList}
             />
           </div>
           {alert ? <AlertMessage /> : null}
