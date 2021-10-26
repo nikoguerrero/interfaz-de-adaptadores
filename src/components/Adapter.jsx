@@ -2,12 +2,12 @@ import React, { Fragment } from 'react';
 import AdapterConfig from './AdapterConfig';
 import changePropertyValue from '../helpers/helper.js';
 import Dependencies from './Dependencies';
-import './style.css'
+import './style.css';
 
 const Adapter = (props) => {
-  const { adapterArray, show, orchArray, setOrchArray, dependeciesList, setDependenciesList } = props;
 
-  const submitAdapter = (adapterArray) => {
+
+  const saveAdapter = (adapterArray) => {
     const newOrchArray = [...orchArray, adapterArray[0]];
     setOrchArray(newOrchArray);
 
@@ -16,6 +16,21 @@ const Adapter = (props) => {
     setDependenciesList((prevDependeciesList) => {
       return [...prevDependeciesList, { value: String(lengthDependencies), label: adapterArray[0].id }]
     });
+
+  const { adapterArray, setAdapterArray, show, orchArray, setOrchArray, setAlert, dependeciesList, setDependenciesList } = props;
+  
+  const submitAdapter = (adapterArray) => {
+    const adapterId = adapterArray[0].id;
+    const adapter = orchArray.find((adapter) => adapter.id === adapterId);
+    if (!adapter) {
+      const newOrchArray = [...orchArray, adapterArray[0]];
+      setOrchArray(newOrchArray);
+      setAdapterArray([]);
+      //falta esconder los botones
+    } else {
+      alert('la ID del adaptador debe ser única');
+      setAlert(true); 
+    }
   };
 
   const cancelOrchestration = () => {
@@ -38,7 +53,7 @@ const Adapter = (props) => {
     </div>
   );
 
-  console.log(orchArray);
+  // console.log(orchArray);
 
   return (
     <Fragment>
