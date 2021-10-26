@@ -20,7 +20,7 @@ const Adapter = (props) => {
       setAdapterArray([]);
       //falta esconder los botones
     } else {
-      alert('la ID del adaptador debe ser única');
+      // alert('la ID del adaptador debe ser única');
       setAlert(true); 
     }
   };
@@ -51,8 +51,8 @@ const Adapter = (props) => {
     <Fragment>
       {adapterArray && adapterArray.map((item) => (
         <div key={item.mainClass}>
-          <h2 className="h1 text-center mt-4">{item.id}</h2>
-          <h5 className="my-primary">Plugin Configuration</h5>
+          <h2 className="h2 text-center mt-4">{item.id}</h2>
+          <h5 className="my-primary fw-bold">Plugin Configuration</h5>
           <div className="row g-2">
             <div className="col-sm-5">
               <div className="form-floating mb-3 ">
@@ -78,7 +78,7 @@ const Adapter = (props) => {
               </div>
             </div>
           </div>
-          <h5 className="my-primary">Config</h5>
+          <h5 className="my-primary fw-bold">Config</h5>
           <AdapterConfig
             key={item.id}
             config={item.config}

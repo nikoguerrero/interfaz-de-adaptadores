@@ -5,6 +5,7 @@ import Orchestration from './Orchestration';
 import Footer from './Footer';
 import { load } from 'js-yaml';
 import Adapter from './Adapter';
+import Modal from './Modal'
 
 const Main = ({ initialOrchArray }) => {
   const [adapterArray, setAdapterArray] = useState([]);
@@ -63,6 +64,7 @@ const Main = ({ initialOrchArray }) => {
               setShowBtn={setShowBtn}
             />
           </div>
+          {alert ? <Modal setAlert={setAlert}/> : null}
           <div className="col-3 vh-100 bg-secondary bg-opacity-25">
             {showOrch ?
               <Orchestration
