@@ -12,6 +12,7 @@ const Main = ({ initialOrchArray }) => {
   const [showOrch, setShowOrch] = useState(false);
   const [showBtn, setShowBtn] = useState(false);
 
+
   //este es el array de la orquestra, donde se van empujando los objetos que corresponden a las configuraciones de los adaptadores
   const [orchArray, setOrchArray] = useState(initialOrchArray);
   const [alert, setAlert] = useState(false);
@@ -62,6 +63,7 @@ const Main = ({ initialOrchArray }) => {
               setDependenciesList={setDependenciesList}
               showBtn={showBtn}
               setShowBtn={setShowBtn}
+              
             />
           </div>
           {alert ? <Modal setAlert={setAlert}/> : null}
