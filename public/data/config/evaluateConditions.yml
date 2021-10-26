@@ -12,7 +12,5 @@
          field: laborafax.calculated.predictedRisk
          threshold: 0.8
        - evalId: decision
-         source:
-           - model
-           - risk
-         field: laborafax.calculated.outputDecision
+         field: laborafax.calculated.predictedRisk
+         threshold: 0.8

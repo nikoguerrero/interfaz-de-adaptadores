@@ -12,6 +12,7 @@ const Plugins = (props) => {
   const showPlugins = () => {
     document.getElementById("adapters").style.display = "grid";
     setSearch(true);
+    setShowOrch(true);
   };
 
   const handleSearch = (adapterText) => {

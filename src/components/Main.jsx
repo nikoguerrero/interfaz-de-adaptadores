@@ -6,7 +6,7 @@ import Footer from './Footer';
 import { load } from 'js-yaml';
 import Adapter from './Adapter';
 
-const Main = ({ initialOrchArray, containsLocalOrch }) => {
+const Main = ({ initialOrchArray }) => {
   const [adapterArray, setAdapterArray] = useState([]);
   const [showOrch, setShowOrch] = useState(false);
   const [showBtn, setShowBtn] = useState(false);
@@ -34,15 +34,6 @@ const Main = ({ initialOrchArray, containsLocalOrch }) => {
         setAdapterArray(yamlJsonObject)
       }).catch((err) => console.log('failed to load yaml file', err));
   };
-
-  const handleCLick = () => {
-    containsLocalOrch = false;
-    setShowOrch(true);
-  }
-
-  const UnsavedOrchestration = () => (
-    <button onClick={handleCLick}>UNSAVED ORCHESTRATION</button>
-  );
 
   return (
     <div>
@@ -73,12 +64,10 @@ const Main = ({ initialOrchArray, containsLocalOrch }) => {
             />
           </div>
           <div className="col-3 vh-100 bg-secondary bg-opacity-25">
-            {containsLocalOrch ? <UnsavedOrchestration /> : null}
             {showOrch ?
               <Orchestration
                 orchArray={orchArray}
                 setOrchArray={setOrchArray}
-                containsLocalOrch={containsLocalOrch}
               />
               : null}
           </div>
