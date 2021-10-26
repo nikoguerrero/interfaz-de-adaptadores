@@ -13,7 +13,7 @@ const Dependecies = ({dependeciesList}) => {
   return (
     <div>
       <Select
-      placeholder={'Dependencies'} 
+      placeholder={'Dependencies  '} 
       options={options} 
       styles={style} />
     </div>

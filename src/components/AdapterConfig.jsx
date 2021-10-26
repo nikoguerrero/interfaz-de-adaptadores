@@ -73,7 +73,7 @@ const AdapterProperty = (props) => {
     );
   } else if (typeof objectValue === 'object') {
     return <div>
-      <h5 className="my-primary">{prefix}</h5>
+      <h5 className="my-primary fw-bold">{prefix}</h5>
       <AdapterConfigWrapper key={objectKey} config={objectValue} triggerRender={triggerRender}/>
     </div>
   } else {

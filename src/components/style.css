@@ -1,4 +1,7 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap');
+body{
+    font-family: 'Open Sans', sans-serif !important;
+}
 .adapters{
     box-shadow: 24px 24px 64px rgba(228, 228, 228, 0.96);
 }
@@ -34,4 +37,33 @@
     background: linear-gradient(to top, #a53c3cfa, #a53c3cfa); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
+.modalBackground {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, .75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-container{
+    width: 30%;
+    height: 30%;
+    border-radius: 0.5rem;
+    background-color: rgb(242, 242, 242);
+    display: flex;
+    flex-direction: column;
+    /* padding: rem; */
+    border: none;
+  }
+  .modal-content {
+    padding: 1rem;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+  }
 
