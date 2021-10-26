@@ -11,14 +11,13 @@ const Footer = () => {
           >
             © 2021 
             <a className="text-white" href="https://soluciones.equifax.cl/">
-                Equifax.Inc   
+                 Equifax.Inc   
             </a>
               .   All rights reserved.
           </div>
         </footer>
       </>
     );
-    // )
 };
 
 export default Footer;

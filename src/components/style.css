@@ -70,3 +70,12 @@ body{
     justify-content: center;
 }
 
+.navbar {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.save-btn {
+    width: 4.7rem;
+}
+

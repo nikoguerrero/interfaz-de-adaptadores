@@ -47,17 +47,17 @@ const Orchestration = ({ orchArray, setOrchArray, LocalOrch }) => {
         <div className="col-12">
           <div className="row justify-content-center">
             {orchArray.map((adapter, index) => (
-              <Fragment>
-                <div className="d-grid  col-sm-7">
+              <div key={index}>
+                <div className="d-grid  col-sm-7"
+                >
                   <button
                     type="button"
                     className="btn btn-secondary text-white  mt-3 "
-                    key={index}
                   >
                     {adapter.id}
                   </button>
                 </div>
-              </Fragment>
+              </div>
             ))}
           </div>
         </div>
