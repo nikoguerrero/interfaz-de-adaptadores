@@ -17,9 +17,7 @@ const Modal = ({setAlert}) => {
                 </span>
               </div>
               <div className="footer">
-                {/* <Link to="/"> */}
                   <button className="btn btn-primary mt-5  float-end" onClick={ handleClick }> Ok </button>
-                {/* </Link> */}
               </div>
             </div>
           </div>

@@ -9,7 +9,8 @@ import Modal from './Modal'
 
 const Main = ({ initialOrchArray }) => {
   const [adapterArray, setAdapterArray] = useState([]);
-  const [show, setShow] = useState(false);
+  const [showOrch, setShowOrch] = useState(false);
+  const [showBtn, setShowBtn] = useState(false);
 
   //este es el array de la orquestra, donde se van empujando los objetos que corresponden a las configuraciones de los adaptadores
   const [orchArray, setOrchArray] = useState(initialOrchArray);
@@ -66,24 +67,30 @@ const Main = ({ initialOrchArray }) => {
           <Header />
         </div>
         <div className="row">
-          <div className="col-3 vh-100  bg-secondary bg-opacity-10">
-            <Plugins showPluginForm={showPluginForm} setShow={setShow} />
+          <div className="col-3 vh-100  bg-secondary bg-opacity-10 ackground-plugins">
+            <Plugins 
+              showPluginForm={showPluginForm} 
+              setShowOrch={setShowOrch}
+              setShowBtn={setShowBtn}
+            />
           </div>
           <div className="col-6 vh-100 overflow-auto " style={{ 'paddingLeft': '5%' }}>
             <Adapter
               adapterArray={adapterArray}
               setAdapterArray={setAdapterArray}
-              show={show}
+              showOrch={showOrch}
               orchArray={orchArray}
               setOrchArray={setOrchArray}
               setAlert={setAlert}
               dependeciesList={dependeciesList}
               setDependenciesList={setDependenciesList}
+              showBtn={showBtn} 
+              setShowBtn={setShowBtn}
             />
           </div>
           {alert ? <Modal setAlert={setAlert}/> : null}
           <div className="col-3 vh-100 bg-secondary bg-opacity-10">
-            {show ? <Orchestration orchArray={orchArray} setOrchArray={setOrchArray} /> : null}
+            {showOrch ? <Orchestration orchArray={orchArray} setOrchArray={setOrchArray} /> : null}
           </div>
         </div>
         <div className="row bg-dark bg-gradient">

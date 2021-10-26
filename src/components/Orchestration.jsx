@@ -1,6 +1,6 @@
-import React, { Fragment } from "react";
-import { dump } from "js-yaml";
-import "./style.css";
+import React, {Fragment} from 'react';
+import { dump } from 'js-yaml';
+import './style.css';
 
 const Orchestration = ({ orchArray, setOrchArray }) => {
   const downloadToFile = async (data, filename, contentType) => {

@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
 import AdapterConfig from './AdapterConfig';
-import changePropertyValue from '../helpers/helper.js';
+import { changePropertyValue } from '../helpers/helper.js';
 import Dependencies from './Dependencies';
 import './style.css';
 
 const Adapter = (props) => {
-  const { adapterArray, setAdapterArray, show, orchArray, setOrchArray, setAlert, dependeciesList, setDependenciesList } = props;
+  const { adapterArray, setAdapterArray, orchArray, setOrchArray, setAlert, dependeciesList, setDependenciesList, showBtn, setShowBtn } = props;
   
   const saveAdapter = (adapterArray) => {
     const adapterId = adapterArray[0].id;
@@ -24,6 +24,11 @@ const Adapter = (props) => {
       setAlert(true); 
     }
   };
+      
+  const cancelAdapter = () => {
+    setAdapterArray([]);
+    setShowBtn(false);
+  };
 
   const CancelOrSaveBtns = () => (
     <div className="row">
@@ -33,7 +38,7 @@ const Adapter = (props) => {
         </button>
         <button
           type="button"
-          className="btn my-primary float-end me-3">
+          className="btn my-primary float-end me-3" onClick={cancelAdapter}>
           Cancel
         </button>
       </div>
@@ -57,7 +62,6 @@ const Adapter = (props) => {
             </div>
             <div className="col-sm-5">
               <div className="form-floating mb-3">
-                {/* <input type="text" className="form-control" defaultValue={item.dependencies} onChange={(e) => changePropertyValue(item, 'dependencies', e.target.value)}/> */}
                 <Dependencies dependeciesList={dependeciesList} />
               </div>
             </div>
@@ -81,7 +85,7 @@ const Adapter = (props) => {
           />
         </div>
       ))}
-      {show ? <CancelOrSaveBtns /> : null}
+      {showBtn ? <CancelOrSaveBtns /> : null}
     </Fragment>
   )
 };
