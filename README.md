@@ -93,17 +93,17 @@ El diseño de la interfaz está hecho de manera que siga un orden secuencial del
 
 ### Para borrar una configuración: 
 
-- Utiliza el botón "cancel" al pie de la columna central. 
+- Utiliza el botón "Cancel" al pie de la columna central. 
 
 ### Para borrar una orquestación completa
 
-- Utiliza el botón rojo "exit" al pie de la  columna derecha. 
+- Utiliza el botón rojo "Delete" al pie de la  columna derecha. 
 
-- Recuerda que si borras la orquestación completa usando el botón exit, ya no podrás recuperarla aunque hayas guardado una configuración con "save". 
+- Recuerda que si borras la orquestación completa usando el botón "Delete", ya no podrás recuperarla aunque hayas guardado una configuración con "Save". 
 
 ### Para descargar mi orquestación en formato yaml: 
 
-- Utiliza el botón "export" al pie de la columna derecha. 
+- Utiliza el botón "Export" al pie de la columna derecha. 
 
 - Recuerda que las opciones de guardado presentan diferentes opciones según el navegador que utilices. 
 
