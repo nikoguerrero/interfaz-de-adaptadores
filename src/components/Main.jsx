@@ -9,6 +9,7 @@ import Adapter from './Adapter';
 const Main = ({ initialOrchArray }) => {
   const [adapterArray, setAdapterArray] = useState([]);
   const [show, setShow] = useState(false);
+  const [showBtn, setShowBtn] =useState(false);
 
   //este es el array de la orquestra, donde se van empujando los objetos que corresponden a las configuraciones de los adaptadores
   const [orchArray, setOrchArray] = useState(initialOrchArray);
@@ -66,7 +67,11 @@ const Main = ({ initialOrchArray }) => {
         </div>
         <div className="row">
           <div className="col-3 vh-100  bg-secondary bg-opacity-10 ackground-plugins">
-            <Plugins showPluginForm={showPluginForm} setShow={setShow} />
+            <Plugins 
+              showPluginForm={showPluginForm} 
+              setShow={setShow}
+              setShowBtn={setShowBtn}
+            />
           </div>
           <div className="col-6 vh-100 overflow-auto " style={{ 'paddingLeft': '5%' }}>
             <Adapter
@@ -78,6 +83,8 @@ const Main = ({ initialOrchArray }) => {
               setAlert={setAlert}
               dependeciesList={dependeciesList}
               setDependenciesList={setDependenciesList}
+              showbtn={showBtn} 
+              setShowBtn={setShowBtn}
             />
           </div>
           {alert ? <AlertMessage /> : null}

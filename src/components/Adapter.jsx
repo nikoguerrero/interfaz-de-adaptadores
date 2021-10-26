@@ -5,7 +5,7 @@ import Dependencies from './Dependencies';
 import './style.css';
 
 const Adapter = (props) => {
-  const { adapterArray, setAdapterArray, show, orchArray, setOrchArray, setAlert, dependeciesList, setDependenciesList } = props;
+  const { adapterArray, setAdapterArray, show, orchArray, setOrchArray, setAlert, dependeciesList, setDependenciesList, showBtn, setShowBtn } = props;
   
   const saveAdapter = (adapterArray) => {
     const adapterId = adapterArray[0].id;
@@ -24,6 +24,11 @@ const Adapter = (props) => {
       setAlert(true); 
     }
   };
+      
+  const cancelAdapter = () => {
+    setAdapterArray([]);
+    setShowBtn(false);
+  };
 
   const CancelOrSaveBtns = () => (
     <div className="row">
@@ -33,7 +38,7 @@ const Adapter = (props) => {
         </button>
         <button
           type="button"
-          className="btn my-primary float-end me-3">
+          className="btn my-primary float-end me-3" onClick={cancelAdapter}>
           Cancel
         </button>
       </div>
@@ -81,7 +86,7 @@ const Adapter = (props) => {
           />
         </div>
       ))}
-      {show ? <CancelOrSaveBtns /> : null}
+      {showBtn ? <CancelOrSaveBtns /> : null}
     </Fragment>
   )
 };
