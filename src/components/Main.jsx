@@ -14,7 +14,7 @@ const Main = ({ initialOrchArray }) => {
   const [orchArray, setOrchArray] = useState(initialOrchArray);
 
   // Aqui definiremos el arreglo que va a manejar todas los ID que se seran usados como dependencias en los otros adaptadores
-  // Si el usuario lo requiere, en caso contrario puede elegir tamgien el valor por defecto 'input'
+  // Si el usuario lo requiere, en caso contrario puede elegir tambien el valor por defecto 'input'
   const [dependeciesList, setDependenciesList] = useState([
     { value: '0', label: 'input' },
   ])
