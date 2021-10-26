@@ -50,7 +50,7 @@ El diseño de la interfaz está hecho de manera que siga un orden secuencial del
 
 
 
-## 2. Configurar varios plugin creando una orquestación y poder descargarla en Yaml 
+## 2. Puedo configurar varios plugin creando una orquestación y descargarla en Yaml 
 
      CRITERIOS DE ACEPTACIÓN
 
@@ -87,10 +87,6 @@ El diseño de la interfaz está hecho de manera que siga un orden secuencial del
 
 - Si no guardas y se cierra accidentalmente la configuración, perderás el trabajo realizado. 
 
-### Para recuperar una configuración si se cierra accidentalmente el navegador. 
-
-- 
-
 ### Para borrar una configuración: 
 
 - Utiliza el botón "Cancel" al pie de la columna central. 
@@ -120,12 +116,3 @@ El diseño de la interfaz está hecho de manera que siga un orden secuencial del
 ## Link
 
 
-
-<!-- (ii) Al elegir un adaptador se mostrará el archivo YAML en la UI, mostrando sus pares
-llave-valor
-(iii) Luego, debemos permitir a la/el usuari@ agregar/modificar sus valores de
-configuración y opción de añadir un siguiente adaptador
-(i) Crear una nueva “orquestación” que permita agregar uno o más adaptadores.
-
-(iv) Al final, además de mostrar en la UI la orquestación, deberá existir la opción de
-descargar un archivo YAML con una lista de adaptadores seleccionados y configurados. -->
