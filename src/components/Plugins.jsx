@@ -5,7 +5,7 @@ import SearchBar from './SearchBar';
 import './style.css';
 
 const Plugins = (props) => {
-  const { showPluginForm, setShow, setShowBtn } = props;
+  const { showPluginForm, setShowOrch, setShowBtn } = props;
   const [filteredAdapters, setFilteredAdapters] = useState(adapters);
   const [search, setSearch] = useState(false);
 
@@ -37,7 +37,7 @@ const Plugins = (props) => {
         {filteredAdapters.map((item, index) => (
           <section key={index}>
             <div className="d-grid  col-8  mx-auto ">
-              <PluginButton item={item} showPluginForm={showPluginForm} setShow={setShow} setShowBtn={setShowBtn} />
+              <PluginButton item={item} showPluginForm={showPluginForm} setShowOrch={setShowOrch} setShowBtn={setShowBtn} />
             </div>
           </section>
         ))}

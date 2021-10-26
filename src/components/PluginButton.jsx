@@ -2,11 +2,12 @@ import React from 'react';
 import './style.css';
 
 const PluginButton = (props) => {
-  const { item, showPluginForm, setShow, setShowBtn } = props;
+  const { item, showPluginForm, setShowOrch, setShowBtn } = props;
   const { name, configuration } = item;
+
   const handleShowPluginForm = () => {
     showPluginForm(configuration);
-    setShow(true);
+    setShowOrch(true);
     setShowBtn(true);
   };
 

@@ -5,7 +5,7 @@ import Dependencies from './Dependencies';
 import './style.css';
 
 const Adapter = (props) => {
-  const { adapterArray, setAdapterArray, show, orchArray, setOrchArray, setAlert, dependeciesList, setDependenciesList, showBtn, setShowBtn } = props;
+  const { adapterArray, setAdapterArray, orchArray, setOrchArray, setAlert, dependeciesList, setDependenciesList, showBtn, setShowBtn } = props;
   
   const saveAdapter = (adapterArray) => {
     const adapterId = adapterArray[0].id;
@@ -62,7 +62,6 @@ const Adapter = (props) => {
             </div>
             <div className="col-sm-5">
               <div className="form-floating mb-3">
-                {/* <input type="text" className="form-control" defaultValue={item.dependencies} onChange={(e) => changePropertyValue(item, 'dependencies', e.target.value)}/> */}
                 <Dependencies dependeciesList={dependeciesList} />
               </div>
             </div>
