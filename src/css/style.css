@@ -58,7 +58,6 @@ body{
     background-color: rgb(242, 242, 242);
     display: flex;
     flex-direction: column;
-    /* padding: rem; */
     border: none;
 }
 
@@ -80,4 +79,8 @@ body{
 
 .plus-btn {
     margin-top: -30% !important;
+}
+
+.new-btn {
+    margin-top: -1rem;
 }

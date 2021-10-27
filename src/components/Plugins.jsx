@@ -30,9 +30,7 @@ const Plugins = (props) => {
           <button className="btn btn-primary" onClick={showPlugins}>+ New</button>
         </div>
       </div>
-
       {search ? <SearchBar handleSearch={handleSearch} /> : null}
-
       <div id='adapters' className="row mt-3 " style={{ display: 'none' }}>
         {filteredAdapters.map((item, index) => (
           <section key={index}>
@@ -42,7 +40,6 @@ const Plugins = (props) => {
           </section>
         ))}
       </div>
-
     </>
   );
 };
