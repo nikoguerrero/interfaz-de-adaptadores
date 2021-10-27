@@ -16,6 +16,7 @@ const Adapter = (props) => {
     setDependenciesList,
     showBtn,
     setShowBtn,
+    setModal
   } = props;
 
   const saveAdapter = (adapterArray) => {
@@ -35,7 +36,7 @@ const Adapter = (props) => {
         setAlert(true);
       }
     } else {
-      alert("ID field can't be empty");
+      setModal(true);
     }
   };
 

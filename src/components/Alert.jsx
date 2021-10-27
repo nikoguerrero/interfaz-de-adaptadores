@@ -1,10 +1,10 @@
 import React from 'react';
 import '../css/style.css';
 
-const Modal = ({ setModal }) => {
+const Alert = ({ setAlert }) => {
 
   const handleClick = () => {
-    setModal(false);
+    setAlert(false);
   };
   return (
     <div>
@@ -13,7 +13,7 @@ const Modal = ({ setModal }) => {
           <div className="modal-content">
             <div className="body">
               <div className="h6 text-center mt-2">
-                ID field can't be empty
+                Plugin's ID should be unique
               </div>
             </div>
             <button className="btn btn-primary mt-4 float-end" onClick={handleClick}> OK </button>
@@ -24,4 +24,4 @@ const Modal = ({ setModal }) => {
   );
 };
 
-export default Modal;
+export default Alert;
