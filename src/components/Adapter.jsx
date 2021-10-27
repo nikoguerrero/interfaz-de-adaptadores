@@ -16,6 +16,7 @@ const Adapter = (props) => {
     setDependenciesList,
     showBtn,
     setShowBtn,
+    setAlertUniqueId
   } = props;
 
   const saveAdapter = (adapterArray) => {
@@ -33,9 +34,11 @@ const Adapter = (props) => {
         setShowBtn(false);
       } else {
         setAlert(true);
+        setAlertUniqueId(true);
       }
     } else {
-      alert("ID field can't be empty");
+      setAlert(true);
+      setAlertUniqueId(false);
     }
   };
 

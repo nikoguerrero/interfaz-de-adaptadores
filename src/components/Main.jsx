@@ -14,6 +14,7 @@ const Main = ({ initialOrchArray }) => {
   const [adapterName, setAdapterName] = useState('');
   const [orchArray, setOrchArray] = useState(initialOrchArray);
   const [alert, setAlert] = useState(false);
+  const [alertUniqueId, setAlertUniqueId] = useState(false);
   const [dependenciesList, setDependenciesList] = useState([
     { value: '0', label: 'input' },
   ]);
@@ -60,9 +61,10 @@ const Main = ({ initialOrchArray }) => {
               setDependenciesList={setDependenciesList}
               showBtn={showBtn}
               setShowBtn={setShowBtn}
+              setAlertUniqueId={setAlertUniqueId}
             />
           </div>
-          {alert ? <Modal setAlert={setAlert}/> : null}
+          {alert ? <Modal setAlert={setAlert} alertUniqueID={alertUniqueId}/> : null}
           <div className="col-3 vh-100 bg-secondary bg-opacity-10">
             {showOrch ?
               <Orchestration
