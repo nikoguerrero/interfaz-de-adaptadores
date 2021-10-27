@@ -13,8 +13,6 @@ const Dependecies = ({dependenciesList, adapter}) => {
   const setAdapterDependency = (dependency) => {
     adapter.dependencies = dependency;
   };
-
-  console.log(options);
   
   return (
     <div>

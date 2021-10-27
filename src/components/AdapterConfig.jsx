@@ -93,7 +93,6 @@ const AdapterProperty = (props) => {
               <input
                 type="text"
                 className="form-control"
-                defaultValue={objectKey}
                 onChange={(e) => { objectKey = changeKey(object, objectKey, e.target.value)} } />
             </div>
           </div>

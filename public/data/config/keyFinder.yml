@@ -7,5 +7,4 @@
     source: ""
     port:   0
     credentials:
-      certificate: ""
-      clientKey: ""
+      key: ""
