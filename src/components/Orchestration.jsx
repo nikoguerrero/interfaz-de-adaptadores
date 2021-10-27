@@ -9,8 +9,6 @@ const Orchestration = ({ orchArray, setOrchArray }) => {
     const yamlData = dump(orchArray);
     downloadToFile(yamlData, 'adapter.yaml', 'text/plain');
     setOrchArray([]);
-    localStorage.clear();
-    window.location.reload();
   };
 
   const deleteOrchestration = () => {

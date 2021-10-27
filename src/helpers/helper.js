@@ -45,6 +45,7 @@ const downloadToFile = async (data, filename, contentType) => {
     URL.revokeObjectURL(a.href);
   }
   localStorage.clear();
+  window.location.reload();
 };
 
 export { changePropertyValue, getUniqueId, changeKey, downloadToFile };
