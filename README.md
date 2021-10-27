@@ -8,12 +8,13 @@
 * [Historia de Usuario](#historia-de-usuario)
 * [Modo de usuario](#modo-de-usuario)
 * [Tecnologias](#tecnologias)
-* [Link](#link)
+* [Dependencias](#dependencias)
+* [Enlace](#enlace)
  
 # Descripción
 
-Es una interfaz creada para usuarios IT, que necesitan poder visualizar, configurar y agilizar el proceso de recuperación de datos, creando diferentes orquestaciones. 
- 
+Esta interfaz consiste en nuestra propuesta de solución al reto de Equifax durante el Talent Fest Chile 2021. Está creada pensando en usuarios IT que necesiten poder visualizar, configurar y agilizar el proceso de recuperación de datos en la creación de orquestaciones.
+
 Cada orquestación se realiza utilizando adaptadores que poseen diferentes parámetros de configuración, accediendo a ellos de manera dinámica y así es posible visualizar ágilmente cada adaptador con su respectiva configuración a modificar, pudiendo agregar o eliminar ítems.
  
 Finalmente, la orquestación de procesos Batch se puede exportar de manera local en formato yaml, con lo que la configuración se borra de la interfaz para que puedas comenzar una nueva. 
@@ -105,14 +106,18 @@ El diseño de la interfaz está hecho de manera que siga un orden secuencial del
 
 
 
-# Tecnologias  
+## Tecnologias  
 - Javascript
 - React.JS
 - Bootstrap 5
-- Libreria js-yaml
 - HTML5 
 - CSS
 
-## Link
+## Dependencias
+- js-yaml
+- react-select
 
+## Enlace
+
+[The Rat Pack Solution 🐀](https://equifaxinterfacechallenge.netlify.app/)
 
