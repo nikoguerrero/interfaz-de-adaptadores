@@ -5,7 +5,8 @@ import Orchestration from './Orchestration';
 import Footer from './Footer';
 import { load } from 'js-yaml';
 import Adapter from './Adapter';
-import Modal from './Modal'
+import Modal from './Modal';
+import Alert from './Alert';
 
 const Main = ({ initialOrchArray }) => {
   const [adapterArray, setAdapterArray] = useState([]);
@@ -13,8 +14,8 @@ const Main = ({ initialOrchArray }) => {
   const [showBtn, setShowBtn] = useState(false);
   const [adapterName, setAdapterName] = useState('');
   const [orchArray, setOrchArray] = useState(initialOrchArray);
+  const [modal, setModal] = useState(false);
   const [alert, setAlert] = useState(false);
-  const [alertUniqueId, setAlertUniqueId] = useState(false);
   const [dependenciesList, setDependenciesList] = useState([
     { value: '0', label: 'input' },
   ]);
@@ -61,10 +62,12 @@ const Main = ({ initialOrchArray }) => {
               setDependenciesList={setDependenciesList}
               showBtn={showBtn}
               setShowBtn={setShowBtn}
-              setAlertUniqueId={setAlertUniqueId}
+              modal={modal}
+              setModal={setModal}
             />
           </div>
-          {alert ? <Modal setAlert={setAlert} alertUniqueID={alertUniqueId}/> : null}
+          {modal ? <Modal setModal={setModal} /> : null}
+          {alert ? <Alert setAlert={setAlert} /> : null}
           <div className="col-3 vh-100 bg-secondary bg-opacity-10">
             {showOrch ?
               <Orchestration

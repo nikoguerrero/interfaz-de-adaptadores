@@ -62,7 +62,7 @@ body{
 }
 
 .modal-content {
-    padding: 1rem;
+    padding: 2rem 3rem;
     width: 100%;
     display: flex;
     justify-content: center;

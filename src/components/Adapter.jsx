@@ -16,7 +16,7 @@ const Adapter = (props) => {
     setDependenciesList,
     showBtn,
     setShowBtn,
-    setAlertUniqueId
+    setModal
   } = props;
 
   const saveAdapter = (adapterArray) => {
@@ -34,11 +34,9 @@ const Adapter = (props) => {
         setShowBtn(false);
       } else {
         setAlert(true);
-        setAlertUniqueId(true);
       }
     } else {
-      setAlert(true);
-      setAlertUniqueId(false);
+      setModal(true);
     }
   };
 
