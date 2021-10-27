@@ -32,6 +32,8 @@ El prototipo de alta fidelidad se realizó en Figma y se diseñó pensando en un
 
 # Interfaz
 
+<img src= "image.gif" ></img>
+
 # Historia de Usuario
  
 ###  1. Como usuario TI puedo visualizar los plugins y configurarlos
