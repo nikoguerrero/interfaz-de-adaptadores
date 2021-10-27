@@ -27,7 +27,7 @@ const Plugins = (props) => {
       <div className="row">
         <h3 className="mt-4 text-center ">Plugins</h3>
         <div className="d-grid  col-5 m-button-new ">
-          <button className="btn btn-primary" onClick={showPlugins}>+ New</button>
+          <button className="btn btn-primary new-btn" onClick={showPlugins}>+ New</button>
         </div>
       </div>
       {search ? <SearchBar handleSearch={handleSearch} /> : null}
