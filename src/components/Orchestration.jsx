@@ -5,10 +5,12 @@ import '../css/style.css';
 
 const Orchestration = ({ orchArray, setOrchArray }) => {
   
-  const exportToYaml = (orchArray) => {
+  const exportToYaml = async (orchArray) => {
     const yamlData = dump(orchArray);
-    downloadToFile(yamlData, 'adapter.yaml', 'text/plain');
-    setOrchArray([]);
+    const result = await downloadToFile(yamlData, 'adapter.yaml', 'text/plain');
+    if (result) {
+      setOrchArray([]);
+    }
   };
 
   const deleteOrchestration = () => {

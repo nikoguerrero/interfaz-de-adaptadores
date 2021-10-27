@@ -62,7 +62,7 @@ const AdapterProperty = (props) => {
     const prefix = isArray ? '' : firstToUpper(objectKey) + ':';
     return (
       <Fragment>
-        <h5 className="my-primary">{prefix}</h5>
+        <h5 className="my-primary fw-bold">{prefix}</h5>
         {objectValue.map((item) =>
           <AdapterPropertyList array={objectValue} triggerRender={triggerRender} key={getUniqueId(item)} propertyList={item} />
         )}
@@ -75,7 +75,7 @@ const AdapterProperty = (props) => {
   } else if (typeof objectValue === 'object') {
     const prefix = isArray ? '' : firstToUpper(objectKey) + ':';
     return <div>
-      <h5 className="my-primary">{prefix}</h5>
+      <h5 className="my-primary fw-bold">{prefix}</h5>
       <AdapterConfigWrapper
         key={objectKey}
         config={objectValue}

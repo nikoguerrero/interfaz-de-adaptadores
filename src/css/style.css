@@ -53,7 +53,6 @@ body{
 }
 
 .modal-container{
-    /* width: 30%; */
     height: 50%;
     border-radius: 0.5rem;
     background-color: rgb(242, 242, 242);
@@ -65,7 +64,7 @@ body{
 
 .modal-content {
     padding: 1rem;
-    width: 50%;
+    width: 100%;
     display: flex;
     justify-content: center;
 }

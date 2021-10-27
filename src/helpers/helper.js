@@ -26,17 +26,22 @@ const downloadToFile = async (data, filename, contentType) => {
   const file = new Blob([data], { type: contentType });
 
   if (window.showSaveFilePicker !== undefined) {
-    const newHandle = await window.showSaveFilePicker({
-      types: [
-        {
-          description: "Yaml file",
-          accept: { "text/plain": [".yaml"] },
-        },
-      ],
-    });
-    const writableStream = await newHandle.createWritable();
-    await writableStream.write(file);
-    await writableStream.close();
+    try {
+      const newHandle = await window.showSaveFilePicker({
+        types: [
+          {
+            description: "Yaml file",
+            accept: { "text/plain": [".yaml"] },
+          },
+        ],
+      });
+      const writableStream = await newHandle.createWritable();
+      await writableStream.write(file);
+      await writableStream.close();
+    } catch (err) {
+      console.log('failed to save file');
+      return false;
+    }
   } else {
     const a = document.createElement('a');
     a.href = URL.createObjectURL(file);
@@ -46,6 +51,7 @@ const downloadToFile = async (data, filename, contentType) => {
   }
   localStorage.clear();
   window.location.reload();
+  return true;
 };
 
 export { changePropertyValue, getUniqueId, changeKey, downloadToFile };
