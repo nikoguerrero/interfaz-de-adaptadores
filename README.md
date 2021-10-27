@@ -24,7 +24,12 @@ Es un diseño minimalista dividido en tres secciones. La columna principal conti
 El diseño de la interfaz está hecho de manera que siga un orden secuencial del proceso y sea fácil de identificar los requerimientos del usuario para poder acceder a la información.
 
 ![Prototipo](./src/assets/Desktop(2).png)
+
 # Interfaz
+
+En éste apartado es posible ver la interfaz en movimiento.
+
+<img src= "image.gif" ></img>
 
 # Historia de Usuario
  
