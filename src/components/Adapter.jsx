@@ -2,16 +2,17 @@ import React, { Fragment } from 'react';
 import AdapterConfig from './AdapterConfig';
 import { changePropertyValue } from '../helpers/helper.js';
 import Dependencies from './Dependencies';
-import './style.css';
+import '../css/style.css';
 
 const Adapter = (props) => {
   const {
+    adapterName,
     adapterArray,
     setAdapterArray,
     orchArray,
     setOrchArray,
     setAlert,
-    dependeciesList,
+    dependenciesList,
     setDependenciesList,
     showBtn,
     setShowBtn,
@@ -20,7 +21,7 @@ const Adapter = (props) => {
   const saveAdapter = (adapterArray) => {
     const adapterId = adapterArray[0].id;
     const adapter = orchArray.find((adapter) => adapter.id === adapterId);
-    const lengthDependencies = dependeciesList.length;
+    const lengthDependencies = dependenciesList.length;
     if (!adapter) {
       const newOrchArray = [...orchArray, adapterArray[0]];
       setOrchArray(newOrchArray);
@@ -64,19 +65,18 @@ const Adapter = (props) => {
     <Fragment>
       {adapterArray && adapterArray.map((item) => (
         <div key={item.mainClass}>
-          <h2 className="h2 text-center mt-4">{item.id}</h2>
+          <h3 className="h3 text-center mt-4">{adapterName}</h3>
           <h5 className="my-primary fw-bold">Plugin Configuration</h5>
           <div className="row g-2">
             <div className="col-sm-5">
               <div className="form-floating mb-3 ">
-                <input type="text" className="form-control" defaultValue={item.id} onChange={(e) => changePropertyValue(item, 'id', e.target.value)
-                } />
+                <input type="text" className="form-control" defaultValue={item.id} onChange={(e) => changePropertyValue(item, 'id', e.target.value)} />
                 <label>ID</label>
               </div>
             </div>
             <div className="col-sm-5">
               <div className="form-floating mb-3">
-                <Dependencies dependeciesList={dependeciesList} />
+                <Dependencies dependenciesList={dependenciesList} adapter={item}/>
               </div>
             </div>
             <div className="col-sm-5">

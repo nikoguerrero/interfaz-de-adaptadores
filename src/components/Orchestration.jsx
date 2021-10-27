@@ -1,8 +1,8 @@
 import React, {Fragment} from 'react';
 import { dump } from 'js-yaml';
-import './style.css';
+import '../css/style.css';
 
-const Orchestration = ({ orchArray, setOrchArray, LocalOrch }) => {
+const Orchestration = ({ orchArray, setOrchArray }) => {
   const downloadToFile = async (data, filename, contentType) => {
     const file = new Blob([data], { type: contentType });
 
@@ -42,12 +42,12 @@ const Orchestration = ({ orchArray, setOrchArray, LocalOrch }) => {
 
   return (
     <>
-      <h2 className="h2 text-center mt-4">Orchestration</h2>
+      <h3 className="h3 text-center mt-4">Orchestration</h3>
       <div className="row  container-orchestration overflow-auto mt-2">
         <div className="col-12">
           <div className="row justify-content-center">
             {orchArray.map((adapter, index) => (
-              <div key={index}>
+              <Fragment key={index}>
                 <div className="d-grid  col-sm-7"
                 >
                   <button
@@ -57,7 +57,7 @@ const Orchestration = ({ orchArray, setOrchArray, LocalOrch }) => {
                     {adapter.id}
                   </button>
                 </div>
-              </div>
+              </Fragment>
             ))}
           </div>
         </div>
@@ -85,5 +85,6 @@ const Orchestration = ({ orchArray, setOrchArray, LocalOrch }) => {
     </>
   );
 };
+
 
 export default Orchestration;

@@ -151,7 +151,7 @@ const addToList = (arrayValue, triggerRender) => {
 const AddBtnArray = ({ arrayValue, triggerRender }) => (
   <div className="col-sm-1">
     {/* botón de agregar elementos a listas */}
-    <button className="btn btn-ligth" onClick={() => addToList(arrayValue, triggerRender)}>
+    <button className="btn plus-btn" onClick={() => addToList(arrayValue, triggerRender)}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="20"
@@ -174,7 +174,7 @@ const addToMap = (objectValue, triggerRender) => {
 
 const AddBtnMap = ({ objectValue, triggerRender }) => (
   <div className="col-sm-1">
-    <button className="btn btn-ligth" onClick={() => addToMap(objectValue, triggerRender)}>
+    <button className="btn plus-btn " onClick={() => addToMap(objectValue, triggerRender)}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="20"

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import adapters from '../data/adapters';
 import PluginButton from './PluginButton';
 import SearchBar from './SearchBar';
-import './style.css';
+import '../css/style.css';
 
 const Plugins = (props) => {
   const { showPluginForm, setShowOrch, setShowBtn } = props;
@@ -26,7 +26,7 @@ const Plugins = (props) => {
   return (
     <>
       <div className="row">
-        <h2 className="mt-4 text-center ">Plugins</h2>
+        <h3 className="mt-4 text-center ">Plugins</h3>
         <div className="d-grid  col-5 m-button-new ">
           <button className="btn btn-primary mt-3" onClick={showPlugins}>+ New</button>
         </div>

@@ -79,3 +79,6 @@ body{
     width: 4.7rem;
 }
 
+.plus-btn {
+    margin-top: -30% !important;
+}
