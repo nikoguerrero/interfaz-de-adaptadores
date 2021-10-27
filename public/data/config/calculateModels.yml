@@ -10,7 +10,3 @@
            factor1: 0
            factor2: 0
            threshold: 0
-       - predictFraud:
-           model: ""
-           criteria: ""
-           predictionType: ""
