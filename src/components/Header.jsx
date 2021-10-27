@@ -8,7 +8,6 @@ import icon5 from '../assets/person-circle.svg'
 const Header = () => {
   return (
     <>
-  
       <nav className="navbar navbar-light bg-light shadow ">
         <div className="ms-4">
          <img src={logo} alt="" /> 
