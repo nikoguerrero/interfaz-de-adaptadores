@@ -5,7 +5,7 @@
    config:
     recordClass: ""
     constants:
-      laborafax.UUID : ""
+      key : ""
     fields:
     - mapping: ""
       length: 0
