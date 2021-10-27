@@ -19,7 +19,6 @@ const Plugins = (props) => {
     let value = adapterText.toLowerCase();
     let filteredAdapters = [];
     filteredAdapters = adapters.filter((adapter) => adapter.name.toLowerCase().search(value) !== -1);
-    console.log(filteredAdapters);
     setFilteredAdapters(filteredAdapters);
   };
 

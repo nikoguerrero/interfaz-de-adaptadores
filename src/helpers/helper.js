@@ -7,7 +7,6 @@ const changePropertyValue = (object, objectKey, newValue) => {
 };
 
 const changeKey = (object, objectKey, newObjectKey) => {
-  console.log(object, objectKey, newObjectKey);
   const value = object[objectKey];
   delete object[objectKey];
   object[newObjectKey] = value;
@@ -23,4 +22,29 @@ const getUniqueId = (obj) => {
   return obj.__unique_id__;
 };
 
-export { changePropertyValue, getUniqueId, changeKey };
+const downloadToFile = async (data, filename, contentType) => {
+  const file = new Blob([data], { type: contentType });
+
+  if (window.showSaveFilePicker !== undefined) {
+    const newHandle = await window.showSaveFilePicker({
+      types: [
+        {
+          description: "Yaml file",
+          accept: { "text/plain": [".yaml"] },
+        },
+      ],
+    });
+    const writableStream = await newHandle.createWritable();
+    await writableStream.write(file);
+    await writableStream.close();
+  } else {
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(file);
+    a.download = filename;
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }
+  localStorage.clear();
+};
+
+export { changePropertyValue, getUniqueId, changeKey, downloadToFile };
